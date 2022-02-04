@@ -7,21 +7,21 @@
     <meta name="turbo-cache-control" content="no-cache">
 
     <!-- Primary Meta Tags -->
-    <title>Projects</title>
-    <meta name="title" content="Projects">
-    <meta name="description" content="This section covers some of my personal coding projects, the main tools used and how to install and deploy them." />
+    <title>Git</title>
+    <meta name="title" content="Git">
+    <meta name="description" content="For Windows users only" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aliciacyy.github.io/coding-tbs/projects/">
-    <meta property="og:title" content="Projects">
-    <meta property="og:description" content="This section covers some of my personal coding projects, the main tools used and how to install and deploy them.">
+    <meta property="og:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/git/">
+    <meta property="og:title" content="Git">
+    <meta property="og:description" content="For Windows users only">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://aliciacyy.github.io/coding-tbs/projects/">
-    <meta property="twitter:title" content="Projects">
-    <meta property="twitter:description" content="This section covers some of my personal coding projects, the main tools used and how to install and deploy them.">
+    <meta property="twitter:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/git/">
+    <meta property="twitter:title" content="Git">
+    <meta property="twitter:description" content="For Windows users only">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/coding-tbs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -185,26 +185,95 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="projects" class="break-words">
+<doc-anchor-target id="git" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#projects">#</doc-anchor-trigger>
-        <span>Projects</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#git">#</doc-anchor-trigger>
+        <span>Git</span>
     </h1>
 </doc-anchor-target>
-<p>This section covers some of my personal coding projects, the main tools used and how to install and deploy them.</p>
-<doc-anchor-target id="sections">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#sections">#</doc-anchor-trigger>
-        <span>Sections</span>
-    </h2>
+<doc-anchor-target id="switch-git-credentials">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#switch-git-credentials">#</doc-anchor-trigger>
+        <span>Switch Git credentials</span>
+    </h3>
 </doc-anchor-target>
-<ul>
-<li><a href="coding-tbs/">Coding TBS - Retype</a></li>
-<li><a href="hiking/">Hiking - Gatsby</a></li>
-<li><a href="mhs2/">MHS2 - Docsify</a></li>
-<li><a href="mhs2/">Pigster Churn - Docusaurus 2</a></li>
-<li><a href="mhs2/">Stardew Valley - Angular 6</a></li>
-</ul>
+<div class="flex mb-6">
+    <div class="flex-shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3">
+<p>For Windows users only</p>
+        </div>
+    </div>
+</div>
+<ol>
+<li>Open Credential Manager</li>
+<li>In <code v-pre>Generic Credentials</code>, edit <code v-pre>git:https://github.com</code></li>
+<li>Set username as the name to be displayed</li>
+<li>Set password with a personal access token
+<ol>
+<li>If token has expired, re-generate at <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></li>
+</ol>
+</li>
+</ol>
+<doc-anchor-target id="add-new-changes-to-previous-commit">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#add-new-changes-to-previous-commit">#</doc-anchor-trigger>
+        <span>Add new changes to previous commit</span>
+    </h3>
+</doc-anchor-target>
+<p>Commit must not be pushed yet.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">git commit --amend --no-edit</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="rename-local-branch">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#rename-local-branch">#</doc-anchor-trigger>
+        <span>Rename local branch</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">git branch -m &lt;newname&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="delete-local-branch">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#delete-local-branch">#</doc-anchor-trigger>
+        <span>Delete local branch</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">git branch -D &lt;branch_name&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="update-commit-author">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#update-commit-author">#</doc-anchor-trigger>
+        <span>Update commit author</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">git rebase -i &lt;commit&gt;
+git commit --amend --author=&quot;&lt;name&gt; &lt;&lt;email&gt;&gt;&quot; --no-edit
+git rebase --continue
+git push -f</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="set-git-config">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-git-config">#</doc-anchor-trigger>
+        <span>Set git config</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">git config --global user.name &lt;name&gt;
+git config --global user.email &lt;email&gt;</code></pre>
+</doc-codeblock></div>
 
 
 
@@ -216,20 +285,20 @@
             
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/coding-tbs/cheatsheet/git/">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/coding-tbs/cheatsheet/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Git</span>
+                <span class="block mt-1">Cheatsheet</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/coding-tbs/projects/coding-tbs/">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/coding-tbs/projects/">
             <span>
                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">Coding TBS - Retype</span>
+                <span class="block mt-1">Projects</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         </a>
@@ -277,6 +346,6 @@
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Projects", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Git", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
     </body>
 </html>
