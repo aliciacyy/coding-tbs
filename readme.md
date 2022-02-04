@@ -2,6 +2,8 @@
 label: Welcome
 icon: home
 ---
-# Welcome to Coding TBS
+# Welcome!
 
-TBC
+Yet another random side project started by me. 
+
+The motivation stemmed from documenting solutions to resolving build or code errors, but may extend to other areas.
