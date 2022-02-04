@@ -1,6 +1,7 @@
 ---
 label: Debugging
 icon: bug
+order: 3
 ---
 A collection of solutions that worked for me while troubleshooting various coding problems.
 

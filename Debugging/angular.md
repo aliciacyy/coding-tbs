@@ -15,7 +15,9 @@ Faced this issue where even though I installed Node.js (LTS version 16.13.2) wit
 1. Delete NPM and NPM-Cache folder (found in `C:\Users\<your_user>\AppData\Roaming`)
 2. Run command `npm install -g npm@latest`
 
-Credit: <a href="https://stackoverflow.com/a/63337788" target="_blank">https://stackoverflow.com/a/63337788</a>
+Checking npm and nodejs versions: <a href="https://nodejs.org/en/download/releases/" target="_blank">https://nodejs.org/en/download/releases/</a>
+
+**Credit:** <a href="https://stackoverflow.com/a/63337788" target="_blank">https://stackoverflow.com/a/63337788</a>
 
 ### Angular CLI version mismatch
 
@@ -25,4 +27,4 @@ Credit: <a href="https://stackoverflow.com/a/63337788" target="_blank">https://s
 #### Solution
 Run `npm install --save-dev @angular/cli@13.0.4`
 
-Credit: <a href="https://stackoverflow.com/a/46664270" target="_blank">https://stackoverflow.com/a/46664270</a>
+**Credit:** <a href="https://stackoverflow.com/a/46664270" target="_blank">https://stackoverflow.com/a/46664270</a>
