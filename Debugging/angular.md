@@ -71,3 +71,47 @@ not safari 15.2-15.3
 ```
 
 **Credit:** <a href="https://github.com/angular/angular-cli/issues/22606#issuecomment-1025206301" target="_blank">https://github.com/angular/angular-cli/issues/22606#issuecomment-1025206301</a>
+
+### Using Foundation with Angular 13
+
+Faced several errors while trying to use <a href="https://get.foundation/sites/docs/index.html" target="_blank">Foundation</a> JS with Angular.
+
+#### Error
+```
+Cannot find name '$'. Do you need to install type definitions for jQuery? Try `npm i --save-dev @types/jquery` and then add 'jquery' to the types field in your tsconfig.
+Property 'foundation' does not exist on type 'JQuery<Document>'
+Cannot find name '$'. Do you need to instae types field in your tsconfig.
+```
+
+#### Solution
+1. Run the following:
+```
+npm install foundation-sites
+npm i --save-dev @types/jquery
+
+```
+2. In `polyfills.ts`, add this line: 
+```./src/polyfills.ts
+import 'jquery';
+```
+3. In `angular.json`, add the CSS and JS files:
+```./angular.json
+"styles": [
+  "node_modules/foundation-sites/dist/css/foundation.min.css",
+  "src/styles.css"
+],
+"scripts": [
+  "node_modules/jquery/dist/jquery.min.js",
+  "node_modules/foundation-sites/dist/js/foundation.min.js"
+]
+```
+4. In `app.component.ts`, add this to make components work:
+``` ./src/app/app.component.ts
+ngOnInit() {
+  (<any>$(document)).foundation();
+}
+```
+
+**Credit:** 
+- <a href="https://stackoverflow.com/a/52228633" target="_blank">Integrating instructions</a>
+- <a href="https://stackoverflow.com/a/24984067" target="_blank">Property does not exist</a>
