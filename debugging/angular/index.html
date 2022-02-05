@@ -26,11 +26,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/coding-tbs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/coding-tbs/favicon.png" rel="icon" />
-    <link href="/coding-tbs/resources/css/retype.css?v=1.11.2.697299932805" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/coding-tbs/resources/css/retype.css?v=1.11.2.697383863792" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/coding-tbs/resources/js/config.js?v=1.11.2.697299932805" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/coding-tbs/resources/js/config.js?v=1.11.2.697383863792" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/coding-tbs/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/coding-tbs/resources/js/lunr.js?v=1.11.2.697299932805" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/coding-tbs/resources/js/lunr.js?v=1.11.2.697383863792" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -239,6 +239,60 @@
 </doc-anchor-target>
 <p>Run <code v-pre>npm install --save-dev @angular/cli@13.0.4</code></p>
 <p><strong>Credit:</strong> <a href="https://stackoverflow.com/a/46664270" target="_blank">https://stackoverflow.com/a/46664270</a></p>
+<doc-anchor-target id="ng-build-error">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ng-build-error">#</doc-anchor-trigger>
+        <span>ng build error</span>
+    </h3>
+</doc-anchor-target>
+<p>Got this error when running <code v-pre>ng build --prod --base-href &quot;https://GithubUserName.github.io/GithubRepoName/&quot;</code>.</p>
+<doc-anchor-target id="error-2">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#error-2">#</doc-anchor-trigger>
+        <span>Error</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">./src/polyfills.ts - Error: Module build failed (from ./node_modules/@ngtools/webpack/src/ivy/index.js):
+Transform failed with 1 error:
+error: Invalid version: &quot;15.2-15.3&quot;
+
+./src/styles.css - Error: Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):
+HookWebpackError: Module build failed (from ./node_modules/@ngtools/webpack/src/ivy/index.js):
+Transform failed with 1 error:
+error: Invalid version: &quot;15.2-15.3&quot;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="solution-2">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#solution-2">#</doc-anchor-trigger>
+        <span>Solution</span>
+    </h4>
+</doc-anchor-target>
+<p>Replace the content of <code v-pre>.browserslistrc</code> with the following:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">./.browserslistrc</div>
+<pre class="language-none"><code v-pre class="language-none"># This file is used by the build system to adjust CSS and JS output to support the specified browsers below.
+# For additional information regarding the format and rule options, please see:
+# https://github.com/browserslist/browserslist#queries
+
+# For the full list of supported browsers by the Angular framework, please see:
+# https://angular.io/guide/browser-support
+
+# You can see what browsers were selected by your queries by running:
+#   npx browserslist
+
+last 1 Chrome version
+last 1 Firefox version
+last 2 Edge major versions
+last 2 Safari major versions
+last 2 iOS major versions
+Firefox ESR
+not IE 9-10 # Angular support for IE 9-10 has been deprecated and will be removed as of Angular v11. To opt-in, remove the 'not' prefix on this line.
+not IE 11 # Angular supports IE 11 only as an opt-in. To opt-in, remove the 'not' prefix on this line.
+not ios_saf 15.2-15.3
+not safari 15.2-15.3</code></pre>
+</doc-codeblock></div>
+<p><strong>Credit:</strong> <a href="https://github.com/angular/angular-cli/issues/22606#issuecomment-1025206301" target="_blank">https://github.com/angular/angular-cli/issues/22606#issuecomment-1025206301</a></p>
 
 
 
