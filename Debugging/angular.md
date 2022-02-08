@@ -115,3 +115,20 @@ ngOnInit() {
 **Credit:** 
 - <a href="https://stackoverflow.com/a/52228633" target="_blank">Integrating instructions</a>
 - <a href="https://stackoverflow.com/a/24984067" target="_blank">Property does not exist</a>
+
+### 'string' can't be used to index type '{}'
+
+#### Error
+```
+'string' can't be used to index type '{}'
+```
+
+#### Solution
+Define the type as such:
+```
+ items: {
+   [key: string]: number | string,
+  }[]
+```
+
+**Credit:**  <a href="https://stackoverflow.com/a/57350191" target="_blank">https://stackoverflow.com/a/57350191</a>
