@@ -26,11 +26,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/coding-tbs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/coding-tbs/favicon.png" rel="icon" />
-    <link href="/coding-tbs/resources/css/retype.css?v=1.11.2.697395415474" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/coding-tbs/resources/css/retype.css?v=1.11.2.697652665256" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/coding-tbs/resources/js/config.js?v=1.11.2.697395415474" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/coding-tbs/resources/js/config.js?v=1.11.2.697652665256" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/coding-tbs/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/coding-tbs/resources/js/lunr.js?v=1.11.2.697395415474" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/coding-tbs/resources/js/lunr.js?v=1.11.2.697652665256" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -360,6 +360,34 @@ npm i --save-dev @types/jquery
 <li><a href="https://stackoverflow.com/a/52228633" target="_blank">Integrating instructions</a></li>
 <li><a href="https://stackoverflow.com/a/24984067" target="_blank">Property does not exist</a></li>
 </ul>
+<doc-anchor-target id="string-cant-be-used-to-index-type-">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#string-cant-be-used-to-index-type-">#</doc-anchor-trigger>
+        <span>&#x27;string&#x27; can&#x27;t be used to index type &#x27;{}&#x27;</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="error-4">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#error-4">#</doc-anchor-trigger>
+        <span>Error</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">'string' can't be used to index type '{}'</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="solution-4">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#solution-4">#</doc-anchor-trigger>
+        <span>Solution</span>
+    </h4>
+</doc-anchor-target>
+<p>Define the type as such:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none"> items: {
+   [key: string]: number | string,
+  }[]</code></pre>
+</doc-codeblock></div>
+<p><strong>Credit:</strong>  <a href="https://stackoverflow.com/a/57350191" target="_blank">https://stackoverflow.com/a/57350191</a></p>
 
 
 
