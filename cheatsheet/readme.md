@@ -7,4 +7,5 @@ Quick reference on frequently used commands and how-tos.
 
 ## Sections
 
+- [Angular](../cheatsheet/angular.md)
 - [Git](../cheatsheet/git.md)
