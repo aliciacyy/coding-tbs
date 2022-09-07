@@ -9,25 +9,28 @@
     <!-- Primary Meta Tags -->
     <title>Angular</title>
     <meta name="title" content="Angular">
+    <meta name="description" content="Note: Can also use 'merge' if adding new ones." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/angular/">
     <meta property="og:title" content="Angular">
+    <meta property="og:description" content="Note: Can also use 'merge' if adding new ones.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/angular/">
     <meta property="twitter:title" content="Angular">
+    <meta property="twitter:description" content="Note: Can also use 'merge' if adding new ones.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/coding-tbs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/coding-tbs/favicon.png" rel="icon" />
-    <link href="/coding-tbs/resources/css/retype.css?v=1.11.2.699289404061" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/coding-tbs/resources/css/retype.css?v=1.11.2.715877164789" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/coding-tbs/resources/js/config.js?v=1.11.2.699289404061" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/coding-tbs/resources/js/config.js?v=1.11.2.715877164789" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/coding-tbs/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/coding-tbs/resources/js/lunr.js?v=1.11.2.699289404061" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/coding-tbs/resources/js/lunr.js?v=1.11.2.715877164789" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -195,7 +198,7 @@
     </h3>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Sample code</div>
+<div class="codeblock-title">Example</div>
 <pre class="language-none"><code v-pre class="language-none">&lt;ng-container *ngFor=&quot;let l of currentLetters&quot; 
   [ngTemplateOutlet]=&quot;letterKey&quot;
   [ngTemplateOutletContext]=&quot;{ letter: l }&quot;&gt;
@@ -204,6 +207,87 @@
 &lt;ng-template #letterKey let-letter=&quot;letter&quot;&gt;
   &lt;div class=&quot;letter-key&quot; (click)=&quot;onLetterClick(letter)&quot;&gt;{{letter}}&lt;/div&gt;
 &lt;/ng-template&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="navigate-to-relative-preserve-any-query-params">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#navigate-to-relative-preserve-any-query-params">#</doc-anchor-trigger>
+        <span>Navigate to relative, preserve any query params</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Example</div>
+<pre class="language-none"><code v-pre class="language-none">this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'});</code></pre>
+</doc-codeblock></div>
+<p>Note: Can also use &#x27;merge&#x27; if adding new ones.</p>
+<doc-anchor-target id="passing-query-parameters-and-fragments">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#passing-query-parameters-and-fragments">#</doc-anchor-trigger>
+        <span>Passing query parameters and fragments</span>
+    </h3>
+</doc-anchor-target>
+<p>E.g. to change URL to <code v-pre>/servers/5/edit?allowEdit=1#loading</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Using HTML</div>
+<pre class="language-none"><code v-pre class="language-none">&lt;a
+  [routerLink]=&quot;['/servers', 5, 'edit']&quot;
+  [queryParams]=&quot;{allowEdit: '1'}
+  fragment=&quot;loading&quot;&gt;
+  Link name
+&lt;/a&gt; </code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Using JS</div>
+<pre class="language-none"><code v-pre class="language-none">import { Router } from '@angular/router';
+
+constructor(private router: Router) { }
+
+fnName(id: number) {
+  this.router.navigate(['/servers', id, 'edit'], {queryParams: allowEdit: '1'}, fragment: 'loading');
+}
+</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="retrieve-params-query-parameters-and-fragments">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#retrieve-params-query-parameters-and-fragments">#</doc-anchor-trigger>
+        <span>Retrieve params, query parameters and fragments</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import { ActivatedRoute } from '@angular/router';
+
+constructor(private route: ActivatedRoute) { }
+
+// not reactive, will not change after component is loaded
+const params = this.route.snapshot.params['id'];
+const query = this.route.snapshot.queryParams;
+const fragment = this.route.snapshot.fragment;
+
+// subscribe to changes, no need to destroy
+this.route.params.subscribe(
+  params: Params) =&gt; {
+    query = +params['id'];
+  }
+);
+this.route.queryParams.subscribe();
+this.route.fragment.subscribe();</code></pre>
+</doc-codeblock></div>
+<p>Note: params is always string. Convert by adding +params[&#x27;id&#x27;]</p>
+<doc-anchor-target id="setting-up-nested-routes">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setting-up-nested-routes">#</doc-anchor-trigger>
+        <span>Setting up nested routes</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Example</div>
+<pre class="language-none"><code v-pre class="language-none">const appRoutes: Routes = [
+  { path: 'servers', component: ServersComponent, children: [
+    { path: ':id', component: ServerComponent },
+    { path: ':id/edit', component: EditServerComponent }
+  ]}
+]
+
+&lt;router-outlet&gt;&lt;/router-outlet&gt;</code></pre>
 </doc-codeblock></div>
 
 
