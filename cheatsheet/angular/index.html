@@ -26,11 +26,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/coding-tbs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/coding-tbs/favicon.png" rel="icon" />
-    <link href="/coding-tbs/resources/css/retype.css?v=1.11.2.715877481224" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/coding-tbs/resources/css/retype.css?v=1.11.2.719506640842" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/coding-tbs/resources/js/config.js?v=1.11.2.715877481224" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/coding-tbs/resources/js/config.js?v=1.11.2.719506640842" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/coding-tbs/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/coding-tbs/resources/js/lunr.js?v=1.11.2.715877481224" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/coding-tbs/resources/js/lunr.js?v=1.11.2.719506640842" defer></script>
+    <script id="prism-js" type="text/javascript" src="/coding-tbs/resources/js/prism.js?v=1.11.2.719506640842" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -289,6 +290,74 @@ this.route.fragment.subscribe();</code></pre>
 
 &lt;router-outlet&gt;&lt;/router-outlet&gt;</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="auth-guard-for-protecting-paths">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#auth-guard-for-protecting-paths">#</doc-anchor-trigger>
+        <span>Auth guard for protecting paths</span>
+    </h3>
+</doc-anchor-target>
+<p>Use either <code v-pre>canActivate</code> to protect whole path, or <code v-pre>canActivateChild</code> to protect only the child paths.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Route</div>
+<pre class="language-none"><code v-pre class="language-none">const appRoutes: Routes = [
+  { path: 'servers', 
+    component: ServersComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    children: [
+    { path: ':id', component: ServerComponent },
+    { path: ':id/edit', component: EditServerComponent }
+  ]}
+]</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">AuthGuard</div>
+<pre class="language-none"><code v-pre class="language-none">canActivate(route: ActivatedRouteSnapshot,
+              state: RouterStateSnapshot): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
+    return this.authService.isAuthenticated()
+      .then(
+        (authenticated: boolean) =&gt; {
+          if (authenticated) {
+            return true;
+          } else {
+            this.router.navigate(['/']);
+          }
+        }
+      );
+  }
+
+  canActivateChild(route: ActivatedRouteSnapshot,
+                   state: RouterStateSnapshot): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
+    return this.canActivate(route, state);
+  }</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="get-static-data-from-router">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#get-static-data-from-router">#</doc-anchor-trigger>
+        <span>Get static data from router</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Route</div>
+<pre class="language-none"><code v-pre class="language-none">const appRoutes: Routes = [
+  { path: 'servers', 
+    component: ServersComponent,
+    data: {
+      msg: 'Hello'
+    }
+  }
+]</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">constructor(private route: ActivatedRoute) { }
+
+this.route.data.subscribe(
+  (data: Data) =&gt; {
+    const test = data['msg'];
+  }
+);
+</code></pre>
+</doc-codeblock></div>
 
 
 
@@ -361,6 +430,6 @@ this.route.fragment.subscribe();</code></pre>
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Angular", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Angular", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
     </body>
 </html>
