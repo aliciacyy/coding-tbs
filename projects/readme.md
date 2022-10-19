@@ -15,3 +15,4 @@ This section covers some of my personal coding projects, the main tools used and
 - [MHS2 - Docsify](../projects/mhs2.md)
 - [Pigster Churn - Docusaurus 2](../projects/mhs2.md)
 - [Stardew Valley - Angular 6](../projects/mhs2.md)
+- [Two Wordy - Node.js, Socket.IO](../projects/two-wordy.md)

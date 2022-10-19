@@ -81,3 +81,63 @@ const appRoutes: Routes = [
 
 <router-outlet></router-outlet>
 ```
+
+### Auth guard for protecting paths
+Use either `canActivate` to protect whole path, or `canActivateChild` to protect only the child paths.
+
+```Route
+const appRoutes: Routes = [
+  { path: 'servers', 
+    component: ServersComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    children: [
+    { path: ':id', component: ServerComponent },
+    { path: ':id/edit', component: EditServerComponent }
+  ]}
+]
+```
+
+```AuthGuard
+canActivate(route: ActivatedRouteSnapshot,
+              state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    return this.authService.isAuthenticated()
+      .then(
+        (authenticated: boolean) => {
+          if (authenticated) {
+            return true;
+          } else {
+            this.router.navigate(['/']);
+          }
+        }
+      );
+  }
+
+  canActivateChild(route: ActivatedRouteSnapshot,
+                   state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    return this.canActivate(route, state);
+  }
+```
+
+### Get static data from router
+```Route
+const appRoutes: Routes = [
+  { path: 'servers', 
+    component: ServersComponent,
+    data: {
+      msg: 'Hello'
+    }
+  }
+]
+```
+
+```JS
+constructor(private route: ActivatedRoute) { }
+
+this.route.data.subscribe(
+  (data: Data) => {
+    const test = data['msg'];
+  }
+);
+
+```
