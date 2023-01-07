@@ -12,7 +12,7 @@ A simple, online playable webpage based on an actual board game called "A Little
 
 #### :icon-mark-github: Github repository
 
-[!ref icon=":rocket:" target="blank"](https://github.com/aliciacyy/just-a-word)
+Private repository
 
 
 ### Setup guide
