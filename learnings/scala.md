@@ -15,17 +15,6 @@ val x: Int = 42
 - Types of `val` are optional as compiler can infer types
 - Semicolons are allowed but not necesary
 
-
-### Types
-- String
-- Boolean
-- Char
-- Int
-- Short
-- Long
-- Float
-- Double
-
 ### Variables
 ```
 var variable: Int = 4
@@ -191,7 +180,7 @@ val greeting = s"Hello, my name i $name and I am $age years old"
 val greeting2 = s"Hello, my name i $name and I am ${age + 1} years old"
 ```
 
-** F-interpolators **
+**F-interpolators**
 ```
 val speed = 1.2f
 val myth = f"I can eat $speed%2.2f"
@@ -199,8 +188,10 @@ val myth = f"I can eat $speed%2.2f"
 - 2 characters total minimum
 - 2 characters precision
 
-** Raw interpolator **
+**Raw interpolator**
+```
 println(raw"This is a \n newline")
+```
 - injected variables still get escaped
 
 ## Object-Orienteed Programming
@@ -232,7 +223,6 @@ class Writer(firstName: String)
 ### Infix/operator notation
 Only works with methods with only 1 parameter
 
-e.g.
 ```
 mary.likes("Inception")
 mary likes "Inception"
@@ -278,25 +268,19 @@ object Person {
     val N_EYES = 2
 }
 ```
-Objects do not receive parameters.
-
-Scala object is a singleton instance.
-
-Objects are in their own class
+- Objects do not receive parameters.
+- Scala object is a singleton instance.
+- Objects are in their own class
 
 ### Companions
-Can write `object Person` and `class Person` to separate singleton stuff.
-
-Can access each other's private members
+- Can write `object Person` and `class Person` to separate singleton stuff.
+- Can access each other's private members
 
 ### Scala Applications
-Scala object with `def main(args: Array[String]): Unit` or `extends App`
-
-Need to pass in constructor arguments to parent class
-
-Derived classes can override members or methods
-
-Reuse parent fileds/methods with super
+- Scala object with `def main(args: Array[String]): Unit` or `extends App`
+- Need to pass in constructor arguments to parent class
+- Derived classes can override members or methods
+- Reuse parent fileds/methods with super
 
 ### Prevent inheritance with `final` and `sealed`
 - use final on member
@@ -388,15 +372,223 @@ throw exception
 ```
 
 ### Packages
-A group of definitions under the same name
-
-To use a definition, be in the same package or import the package
-
-Best practice - mirror the file structure
+- A group of definitions under the same name
+- To use a definition, be in the same package or import the package
+- Best practice - mirror the file structure
 
 `package object`s hold standalone methods/constants (one per package)
 
 Name aliasing imports
 ```
 import java.sql.{Date => SqlDate}
+```
+
+## Functional Programming
+### Functions
+All Scala functions are objects
+- Function traits up to 22 params
+```
+val doubler = new MyFunction[Int, Int] {
+    override def apply(element: Int): Int = element * 2
+}
+println(doubler(2))
+
+trait MyFunction[A, B] {
+    def apply(element: A): B
+}
+```
+
+### Anonymous functions
+```
+var doubler = (x: Int) => x * 2
+
+var adder: (Int, Int) => Int = (a: Int, b: Int) => a + b
+
+val doSomething: () => Int () => 3
+
+val fancy: Int => Int = _ + 1 // same as x => x + 1
+```
+
+### Higher order functions (HOF)
+- Functions that either take in other functions as parameters or returns a function as result 
+- Examples: map, flatMap, filter
+
+```
+// function that applies a function n times over a value x
+// nTimes(f, n, x)
+// nTimes(f, 3, x) = f(f(f(x))) = nTimes(f, 2, f(x)) = f(f(f(x)))
+// nTimes(f, n, x) = f(f(...f(x))) = nTimes(f, n-1, f(x))
+def nTimes(f: Int => Int, n: Int, x: Int): Int =
+    if (n <= 0) x
+    else nTimes(f, n-1, f(x))
+
+val plusOne = (x: Int) => x + 1
+println(nTimes(plusOne, 10, 1))
+
+// ntb(f,n) = x => f(f(f...(x)))
+// increment10 = ntb(plusOne, 10) = x => plusOne(plusOne....(x))
+// val y = increment10(1)
+def nTimesBetter(f: Int => Int, n: Int): (Int => Int) =
+    if (n <= 0) (x: Int) => x
+    else (x: Int) => nTimesBetter(f, n-1)(f(x))
+
+val plus10 = nTimesBetter(plusOne, 10)
+println(plus10(1))
+  ```
+
+### Curried functions
+- Functions with multiple parameter lists
+```
+// receives an Int and returns another function
+val superAdder: Int => (Int => Int) = (x: Int) => (y: Int) => x + y
+val add3 = superAdder(3)  // y => 3 + y
+add3(10) // or
+superAdder(3)(10)
+```
+- Useful when you want to define helper functions that you want to use later on various values
+
+### flatMap
+```
+list = List(1,2,3)
+val toPair = (x: Int) => List(x, x+1)
+println(list.flatMap(toPair))
+// 1, 2, 2, 3, 3, 4
+
+// print all combinations between two lists
+val numbers = List(1,2,3,4)
+val chars = List('a','b','c','d')
+val colors = List("black", "white")
+
+// List("a1", "a2"... "d4")
+```
+
+### for-comprehensions
+```
+// for-comprehensions
+val forCombinations = for {
+    n <- numbers if n % 2 == 0
+    c <- chars
+    color <- colors
+} yield "" + c + n + "-" + color
+println(forCombinations)
+```
+
+### Sequenecs: List, Array, Vector
+**Sequence**
+- General interface for DS that have a well defined order and can be index
+- e.g. `val seq = Seq(1,2,3,4)
+- `seq ++ Seq(5,6,7)`
+- Range: `val range: Seq[Int] = 1 until 10
+
+**List**
+- Immutable linked list
+- head, tail, isEmpty are O(1)
+- Other operations are O(n)
+
+```
+val aList = List(1,2,3)
+val prepended = 42 +: aList :+ 89
+val apples5 = List.fill(5)("apple")
+println(aList.mkString("-|-"))
+```
+
+**Arrays**
+- Can be manually constructed with predefined lengths
+- Can be mutated
+- Indexing is fast
+```
+val numbers = Array(1,2,3,4)
+val threeElements = Array.ofDim[String](3)
+// mutation
+numbers(2) = 0  // syntax sugar for numbers.update(2, 0)
+```
+
+**Vector**
+- Immutable sequence
+- Indexed read and write 
+- Fast element addition
+```
+val vector: Vector[Int] = Vector(1,2,3)
+```
+
+### Tuples and maps
+**Tuples**
+- Finite ordered "lists"
+- 1 indexed
+```
+// tuples = finite ordered "lists"
+val aTuple = (2, "hello, Scala")  // Tuple2[Int, String] = (Int, String)
+
+println(aTuple._1)  // 2
+println(aTuple.copy(_2 = "goodbye Java"))
+println(aTuple.swap)  // ("hello, Scala", 2)
+```
+
+**Maps**
+```
+// Maps - keys -> values
+val aMap: Map[String, Int] = Map()
+
+val phonebook = Map(("Jim", 555), "Daniel" -> 789, ("JIM", 9000)).withDefaultValue(-1)
+// a -> b is sugar for (a, b)
+```
+
+### Options
+- Wrapper for a value that may be present or not
+- Use to avoid NPEs and null-related assertions
+```
+// chained methods
+def backupMethod(): String = "A valid result"
+val chainedResult = Option(unsafeMethod()).orElse(Option(backupMethod()))
+
+// DESIGN unsafe APIs
+def betterUnsafeMethod(): Option[String] = None
+def betterBackupMethod(): Option[String] = Some("A valid result")
+val betterChainedResult = betterUnsafeMethod() orElse betterBackupMethod()
+```
+
+```
+  /*
+    if (h != null)
+      if (p != null)
+        return Connection.apply(h, p)
+    return null
+   */
+  val connection = host.flatMap(h => port.flatMap(p => Connection.apply(h, p)))
+
+  // chained calls
+  config.get("host")
+    .flatMap(host => config.get("port")
+      .flatMap(port => Connection(host, port))
+      .map(connection => connection.connect))
+    .foreach(println)
+
+  // for-comprehensions
+  val forConnectionStatus = for {
+    host <- config.get("host")
+    port <- config.get("port")
+    connection <- Connection(host, port)
+  } yield connection.connect
+  forConnectionStatus.foreach(println)
+```
+
+### Handling failures
+- A Try is a wrapper for a computation that might fail or not
+- Use to handle exception gracefully
+```
+val potentialFailure = Try(unsafeMethod())
+def betterUnsafeMethod(): Try[String] = Failure(new RuntimeException)
+def betterBackupMethod(): Try[String] = Success("A valid result")
+val betterFallback = betterUnsafeMethod() orElse betterBackupMethod()
+
+  // shorthand version
+  HttpService.getSafeConnection(host, port)
+    .flatMap(connection => connection.getSafe("/home"))
+    .foreach(renderHTML)
+
+  // for-comprehension version
+  for {
+    connection <- HttpService.getSafeConnection(host, port)
+    html <- connection.getSafe("/home")
+  } renderHTML(html)
 ```
