@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/coding-tbs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.726390269033">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.726853615937">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -32,11 +32,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/coding-tbs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../favicon.png" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.726390269033" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.726853615937" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.726390269033" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.726853615937" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.726390269033" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.726853615937" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -208,22 +208,6 @@
 <li><code v-pre>val</code> is immutable</li>
 <li>Types of <code v-pre>val</code> are optional as compiler can infer types</li>
 <li>Semicolons are allowed but not necesary</li>
-</ul>
-<doc-anchor-target id="types">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#types">#</doc-anchor-trigger>
-        <span>Types</span>
-    </h3>
-</doc-anchor-target>
-<ul>
-<li>String</li>
-<li>Boolean</li>
-<li>Char</li>
-<li>Int</li>
-<li>Short</li>
-<li>Long</li>
-<li>Float</li>
-<li>Double</li>
 </ul>
 <doc-anchor-target id="variables">
     <h3>
@@ -445,7 +429,7 @@ val age = 12
 val greeting = s&quot;Hello, my name i $name and I am $age years old&quot;
 val greeting2 = s&quot;Hello, my name i $name and I am ${age + 1} years old&quot;</code></pre>
 </doc-codeblock></div>
-<p>** F-interpolators **</p>
+<p><strong>F-interpolators</strong></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">val speed = 1.2f
 val myth = f&quot;I can eat $speed%2.2f&quot;</code></pre>
@@ -454,8 +438,10 @@ val myth = f&quot;I can eat $speed%2.2f&quot;</code></pre>
 <li>2 characters total minimum</li>
 <li>2 characters precision</li>
 </ul>
-<p>** Raw interpolator **
-println(raw&quot;This is a \n newline&quot;)</p>
+<p><strong>Raw interpolator</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">println(raw&quot;This is a \n newline&quot;)</code></pre>
+</doc-codeblock></div>
 <ul>
 <li>injected variables still get escaped</li>
 </ul>
@@ -496,7 +482,6 @@ person.greet(&quot;Jane&quot;)</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Only works with methods with only 1 parameter</p>
-<p>e.g.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">mary.likes(&quot;Inception&quot;)
 mary likes &quot;Inception&quot;</code></pre>
@@ -555,27 +540,33 @@ object Person {
     val N_EYES = 2
 }</code></pre>
 </doc-codeblock></div>
-<p>Objects do not receive parameters.</p>
-<p>Scala object is a singleton instance.</p>
-<p>Objects are in their own class</p>
+<ul>
+<li>Objects do not receive parameters.</li>
+<li>Scala object is a singleton instance.</li>
+<li>Objects are in their own class</li>
+</ul>
 <doc-anchor-target id="companions">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#companions">#</doc-anchor-trigger>
         <span>Companions</span>
     </h3>
 </doc-anchor-target>
-<p>Can write <code v-pre>object Person</code> and <code v-pre>class Person</code> to separate singleton stuff.</p>
-<p>Can access each other&#x27;s private members</p>
+<ul>
+<li>Can write <code v-pre>object Person</code> and <code v-pre>class Person</code> to separate singleton stuff.</li>
+<li>Can access each other&#x27;s private members</li>
+</ul>
 <doc-anchor-target id="scala-applications">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#scala-applications">#</doc-anchor-trigger>
         <span>Scala Applications</span>
     </h3>
 </doc-anchor-target>
-<p>Scala object with <code v-pre>def main(args: Array[String]): Unit</code> or <code v-pre>extends App</code></p>
-<p>Need to pass in constructor arguments to parent class</p>
-<p>Derived classes can override members or methods</p>
-<p>Reuse parent fileds/methods with super</p>
+<ul>
+<li>Scala object with <code v-pre>def main(args: Array[String]): Unit</code> or <code v-pre>extends App</code></li>
+<li>Need to pass in constructor arguments to parent class</li>
+<li>Derived classes can override members or methods</li>
+<li>Reuse parent fileds/methods with super</li>
+</ul>
 <doc-anchor-target id="prevent-inheritance-with-final-and-sealed">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#prevent-inheritance-with-final-and-sealed">#</doc-anchor-trigger>
@@ -718,13 +709,285 @@ throw exception</code></pre>
         <span>Packages</span>
     </h3>
 </doc-anchor-target>
-<p>A group of definitions under the same name</p>
-<p>To use a definition, be in the same package or import the package</p>
-<p>Best practice - mirror the file structure</p>
+<ul>
+<li>A group of definitions under the same name</li>
+<li>To use a definition, be in the same package or import the package</li>
+<li>Best practice - mirror the file structure</li>
+</ul>
 <p><code v-pre>package object</code>s hold standalone methods/constants (one per package)</p>
 <p>Name aliasing imports</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">import java.sql.{Date =&gt; SqlDate}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="functional-programming">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#functional-programming">#</doc-anchor-trigger>
+        <span>Functional Programming</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="functions-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#functions-1">#</doc-anchor-trigger>
+        <span>Functions</span>
+    </h3>
+</doc-anchor-target>
+<p>All Scala functions are objects</p>
+<ul>
+<li>Function traits up to 22 params</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">val doubler = new MyFunction[Int, Int] {
+    override def apply(element: Int): Int = element * 2
+}
+println(doubler(2))
+
+trait MyFunction[A, B] {
+    def apply(element: A): B
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="anonymous-functions">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#anonymous-functions">#</doc-anchor-trigger>
+        <span>Anonymous functions</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">var doubler = (x: Int) =&gt; x * 2
+
+var adder: (Int, Int) =&gt; Int = (a: Int, b: Int) =&gt; a + b
+
+val doSomething: () =&gt; Int () =&gt; 3
+
+val fancy: Int =&gt; Int = _ + 1 // same as x =&gt; x + 1</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="higher-order-functions-hof">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#higher-order-functions-hof">#</doc-anchor-trigger>
+        <span>Higher order functions (HOF)</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Functions that either take in other functions as parameters or returns a function as result</li>
+<li>Examples: map, flatMap, filter</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">// function that applies a function n times over a value x
+// nTimes(f, n, x)
+// nTimes(f, 3, x) = f(f(f(x))) = nTimes(f, 2, f(x)) = f(f(f(x)))
+// nTimes(f, n, x) = f(f(...f(x))) = nTimes(f, n-1, f(x))
+def nTimes(f: Int =&gt; Int, n: Int, x: Int): Int =
+    if (n &lt;= 0) x
+    else nTimes(f, n-1, f(x))
+
+val plusOne = (x: Int) =&gt; x + 1
+println(nTimes(plusOne, 10, 1))
+
+// ntb(f,n) = x =&gt; f(f(f...(x)))
+// increment10 = ntb(plusOne, 10) = x =&gt; plusOne(plusOne....(x))
+// val y = increment10(1)
+def nTimesBetter(f: Int =&gt; Int, n: Int): (Int =&gt; Int) =
+    if (n &lt;= 0) (x: Int) =&gt; x
+    else (x: Int) =&gt; nTimesBetter(f, n-1)(f(x))
+
+val plus10 = nTimesBetter(plusOne, 10)
+println(plus10(1))</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="curried-functions">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#curried-functions">#</doc-anchor-trigger>
+        <span>Curried functions</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Functions with multiple parameter lists</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">// receives an Int and returns another function
+val superAdder: Int =&gt; (Int =&gt; Int) = (x: Int) =&gt; (y: Int) =&gt; x + y
+val add3 = superAdder(3)  // y =&gt; 3 + y
+add3(10) // or
+superAdder(3)(10)</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>Useful when you want to define helper functions that you want to use later on various values</li>
+</ul>
+<doc-anchor-target id="flatmap">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#flatmap">#</doc-anchor-trigger>
+        <span>flatMap</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">list = List(1,2,3)
+val toPair = (x: Int) =&gt; List(x, x+1)
+println(list.flatMap(toPair))
+// 1, 2, 2, 3, 3, 4
+
+// print all combinations between two lists
+val numbers = List(1,2,3,4)
+val chars = List('a','b','c','d')
+val colors = List(&quot;black&quot;, &quot;white&quot;)
+
+// List(&quot;a1&quot;, &quot;a2&quot;... &quot;d4&quot;)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="for-comprehensions">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#for-comprehensions">#</doc-anchor-trigger>
+        <span>for-comprehensions</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">// for-comprehensions
+val forCombinations = for {
+    n &lt;- numbers if n % 2 == 0
+    c &lt;- chars
+    color &lt;- colors
+} yield &quot;&quot; + c + n + &quot;-&quot; + color
+println(forCombinations)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="sequenecs-list-array-vector">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sequenecs-list-array-vector">#</doc-anchor-trigger>
+        <span>Sequenecs: List, Array, Vector</span>
+    </h3>
+</doc-anchor-target>
+<p><strong>Sequence</strong></p>
+<ul>
+<li>General interface for DS that have a well defined order and can be index</li>
+<li>e.g. &#x60;val seq = Seq(1,2,3,4)</li>
+<li><code v-pre>seq ++ Seq(5,6,7)</code></li>
+<li>Range: &#x60;val range: Seq[Int] = 1 until 10</li>
+</ul>
+<p><strong>List</strong></p>
+<ul>
+<li>Immutable linked list</li>
+<li>head, tail, isEmpty are O(1)</li>
+<li>Other operations are O(n)</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">val aList = List(1,2,3)
+val prepended = 42 +: aList :+ 89
+val apples5 = List.fill(5)(&quot;apple&quot;)
+println(aList.mkString(&quot;-|-&quot;))</code></pre>
+</doc-codeblock></div>
+<p><strong>Arrays</strong></p>
+<ul>
+<li>Can be manually constructed with predefined lengths</li>
+<li>Can be mutated</li>
+<li>Indexing is fast</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">val numbers = Array(1,2,3,4)
+val threeElements = Array.ofDim[String](3)
+// mutation
+numbers(2) = 0  // syntax sugar for numbers.update(2, 0)</code></pre>
+</doc-codeblock></div>
+<p><strong>Vector</strong></p>
+<ul>
+<li>Immutable sequence</li>
+<li>Indexed read and write</li>
+<li>Fast element addition</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">val vector: Vector[Int] = Vector(1,2,3)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="tuples-and-maps">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tuples-and-maps">#</doc-anchor-trigger>
+        <span>Tuples and maps</span>
+    </h3>
+</doc-anchor-target>
+<p><strong>Tuples</strong></p>
+<ul>
+<li>Finite ordered &quot;lists&quot;</li>
+<li>1 indexed</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">// tuples = finite ordered &quot;lists&quot;
+val aTuple = (2, &quot;hello, Scala&quot;)  // Tuple2[Int, String] = (Int, String)
+
+println(aTuple._1)  // 2
+println(aTuple.copy(_2 = &quot;goodbye Java&quot;))
+println(aTuple.swap)  // (&quot;hello, Scala&quot;, 2)</code></pre>
+</doc-codeblock></div>
+<p><strong>Maps</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">// Maps - keys -&gt; values
+val aMap: Map[String, Int] = Map()
+
+val phonebook = Map((&quot;Jim&quot;, 555), &quot;Daniel&quot; -&gt; 789, (&quot;JIM&quot;, 9000)).withDefaultValue(-1)
+// a -&gt; b is sugar for (a, b)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="options">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#options">#</doc-anchor-trigger>
+        <span>Options</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Wrapper for a value that may be present or not</li>
+<li>Use to avoid NPEs and null-related assertions</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">// chained methods
+def backupMethod(): String = &quot;A valid result&quot;
+val chainedResult = Option(unsafeMethod()).orElse(Option(backupMethod()))
+
+// DESIGN unsafe APIs
+def betterUnsafeMethod(): Option[String] = None
+def betterBackupMethod(): Option[String] = Some(&quot;A valid result&quot;)
+val betterChainedResult = betterUnsafeMethod() orElse betterBackupMethod()</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">  /*
+    if (h != null)
+      if (p != null)
+        return Connection.apply(h, p)
+    return null
+   */
+  val connection = host.flatMap(h =&gt; port.flatMap(p =&gt; Connection.apply(h, p)))
+
+  // chained calls
+  config.get(&quot;host&quot;)
+    .flatMap(host =&gt; config.get(&quot;port&quot;)
+      .flatMap(port =&gt; Connection(host, port))
+      .map(connection =&gt; connection.connect))
+    .foreach(println)
+
+  // for-comprehensions
+  val forConnectionStatus = for {
+    host &lt;- config.get(&quot;host&quot;)
+    port &lt;- config.get(&quot;port&quot;)
+    connection &lt;- Connection(host, port)
+  } yield connection.connect
+  forConnectionStatus.foreach(println)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="handling-failures">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#handling-failures">#</doc-anchor-trigger>
+        <span>Handling failures</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>A Try is a wrapper for a computation that might fail or not</li>
+<li>Use to handle exception gracefully</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">val potentialFailure = Try(unsafeMethod())
+def betterUnsafeMethod(): Try[String] = Failure(new RuntimeException)
+def betterBackupMethod(): Try[String] = Success(&quot;A valid result&quot;)
+val betterFallback = betterUnsafeMethod() orElse betterBackupMethod()
+
+  // shorthand version
+  HttpService.getSafeConnection(host, port)
+    .flatMap(connection =&gt; connection.getSafe(&quot;/home&quot;))
+    .foreach(renderHTML)
+
+  // for-comprehension version
+  for {
+    connection &lt;- HttpService.getSafeConnection(host, port)
+    html &lt;- connection.getSafe(&quot;/home&quot;)
+  } renderHTML(html)</code></pre>
 </doc-codeblock></div>
 
                                 
