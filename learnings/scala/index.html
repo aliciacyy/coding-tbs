@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/coding-tbs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.726853615937">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.727694459391">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -32,11 +32,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/coding-tbs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../favicon.png" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.726853615937" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.727694459391" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.726853615937" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.727694459391" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.726853615937" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.727694459391" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -988,6 +988,106 @@ val betterFallback = betterUnsafeMethod() orElse betterBackupMethod()
     connection &lt;- HttpService.getSafeConnection(host, port)
     html &lt;- connection.getSafe(&quot;/home&quot;)
   } renderHTML(html)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="pattern-matching">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#pattern-matching">#</doc-anchor-trigger>
+        <span>Pattern matching</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">val description = x match {
+  case 1 =&gt; &quot;the ONE&quot;
+  case 2 =&gt; &quot;double or nothing&quot;
+  case 3 =&gt; &quot;third time is the charm&quot;
+  case _ =&gt; &quot;something else&quot;  // _ = WILDCARD
+}</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">// 1. Decompose values
+case class Person(name: String, age: Int)
+val bob = Person(&quot;Bob&quot;, 20)
+
+val greeting = bob match {
+  case Person(n, a) if a &lt; 21 =&gt; s&quot;Hi, my name is $n and I can't drink in the US&quot;
+  case Person(n, a) =&gt; s&quot;Hi, my name is $n and I am $a years old&quot;
+  case _ =&gt; &quot;I don't know who I am&quot;
+}
+println(greeting)</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>Cases are matched in order</li>
+<li>If no match found (and no default match), will get <code v-pre>scala.MatchError</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">  // PM on sealed hierarchies
+sealed class Animal
+case class Dog(breed: String) extends Animal
+case class Parrot(greeting: String) extends Animal
+
+val animal: Animal = Dog(&quot;Terra Nova&quot;)
+animal match {
+  case Dog(someBreed) =&gt; println(s&quot;Matched a dog of the $someBreed breed&quot;)
+}</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">// 2.2 variable
+val matchAVariable = x match {
+  case something =&gt; s&quot;I've found $something&quot;
+}
+
+
+// 3 - tuples
+val aTuple = (1,2)
+val matchATuple = aTuple match {
+  case (1, 1) =&gt;
+  case (something, 2) =&gt; s&quot;I've found $something&quot;
+}
+
+val nestedTuple = (1, (2, 3))
+val matchANestedTuple = nestedTuple match {
+  case (_, (2, v)) =&gt;
+}
+
+// 4 - case classes - constructor pattern
+// PMs can be nested with CCs as well
+val aList: MyList[Int] = Cons(1, Cons(2, Empty))
+val matchAList = aList match {
+  case Empty =&gt;
+  case Cons(head, Cons(subhead, subtail)) =&gt;
+}
+
+// 5 - list patterns
+val aStandardList = List(1,2,3,42)
+val standardListMatching = aStandardList match {
+  case List(1, _, _, _) =&gt; // extractor - advanced
+  case List(1, _*) =&gt; // list of arbitrary length - advanced
+  case 1 :: List(_) =&gt; // infix pattern
+  case List(1,2,3) :+ 42 =&gt; // infix pattern
+}
+
+// 6 - type specifiers
+val unknown: Any = 2
+val unknownMatch = unknown match {
+  case list: List[Int] =&gt; // explicit type specifier
+  case _ =&gt;
+}
+
+// 7 - name binding
+val nameBindingMatch = aList match {
+  case nonEmptyList @ Cons(_, _) =&gt; // name binding =&gt; use the name later(here)
+  case Cons(1, rest @ Cons(2, _)) =&gt; // name binding inside nested patterns
+}
+
+// 8 - multi-patterns
+val multipattern = aList match {
+  case Empty | Cons(0, _) =&gt; // compound pattern (multi-pattern)
+}
+
+// 9 - if guards
+val secondElementSpecial = aList match {
+  case Cons(_, Cons(specialElement, _)) if specialElement % 2 == 0 =&gt;
+}</code></pre>
 </doc-codeblock></div>
 
                                 
