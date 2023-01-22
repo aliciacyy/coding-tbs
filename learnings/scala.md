@@ -592,3 +592,100 @@ val betterFallback = betterUnsafeMethod() orElse betterBackupMethod()
     html <- connection.getSafe("/home")
   } renderHTML(html)
 ```
+
+## Pattern matching
+```
+val description = x match {
+  case 1 => "the ONE"
+  case 2 => "double or nothing"
+  case 3 => "third time is the charm"
+  case _ => "something else"  // _ = WILDCARD
+}
+```
+
+```
+// 1. Decompose values
+case class Person(name: String, age: Int)
+val bob = Person("Bob", 20)
+
+val greeting = bob match {
+  case Person(n, a) if a < 21 => s"Hi, my name is $n and I can't drink in the US"
+  case Person(n, a) => s"Hi, my name is $n and I am $a years old"
+  case _ => "I don't know who I am"
+}
+println(greeting)
+```
+- Cases are matched in order
+- If no match found (and no default match), will get `scala.MatchError`
+
+```
+  // PM on sealed hierarchies
+sealed class Animal
+case class Dog(breed: String) extends Animal
+case class Parrot(greeting: String) extends Animal
+
+val animal: Animal = Dog("Terra Nova")
+animal match {
+  case Dog(someBreed) => println(s"Matched a dog of the $someBreed breed")
+}
+```
+
+```
+// 2.2 variable
+val matchAVariable = x match {
+  case something => s"I've found $something"
+}
+
+
+// 3 - tuples
+val aTuple = (1,2)
+val matchATuple = aTuple match {
+  case (1, 1) =>
+  case (something, 2) => s"I've found $something"
+}
+
+val nestedTuple = (1, (2, 3))
+val matchANestedTuple = nestedTuple match {
+  case (_, (2, v)) =>
+}
+
+// 4 - case classes - constructor pattern
+// PMs can be nested with CCs as well
+val aList: MyList[Int] = Cons(1, Cons(2, Empty))
+val matchAList = aList match {
+  case Empty =>
+  case Cons(head, Cons(subhead, subtail)) =>
+}
+
+// 5 - list patterns
+val aStandardList = List(1,2,3,42)
+val standardListMatching = aStandardList match {
+  case List(1, _, _, _) => // extractor - advanced
+  case List(1, _*) => // list of arbitrary length - advanced
+  case 1 :: List(_) => // infix pattern
+  case List(1,2,3) :+ 42 => // infix pattern
+}
+
+// 6 - type specifiers
+val unknown: Any = 2
+val unknownMatch = unknown match {
+  case list: List[Int] => // explicit type specifier
+  case _ =>
+}
+
+// 7 - name binding
+val nameBindingMatch = aList match {
+  case nonEmptyList @ Cons(_, _) => // name binding => use the name later(here)
+  case Cons(1, rest @ Cons(2, _)) => // name binding inside nested patterns
+}
+
+// 8 - multi-patterns
+val multipattern = aList match {
+  case Empty | Cons(0, _) => // compound pattern (multi-pattern)
+}
+
+// 9 - if guards
+val secondElementSpecial = aList match {
+  case Cons(_, Cons(specialElement, _)) if specialElement % 2 == 0 =>
+}
+```
