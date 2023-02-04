@@ -9,3 +9,5 @@ Quick reference on frequently used commands and how-tos.
 
 - [Angular](../cheatsheet/angular.md)
 - [Git](../cheatsheet/git.md)
+- [Javascript](../cheatsheet/javascript.md)
+- [Scala](../cheatsheet/scala.md)

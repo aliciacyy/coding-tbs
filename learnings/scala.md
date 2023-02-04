@@ -689,3 +689,7 @@ val secondElementSpecial = aList match {
   case Cons(_, Cons(specialElement, _)) if specialElement % 2 == 0 =>
 }
 ```
+
+---
+
+**Code examples:** https://www.udemy.com/course/rock-the-jvm-scala-for-beginners/
