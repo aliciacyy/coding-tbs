@@ -74,6 +74,47 @@ def Name(name: String): Either[String, String] =
     }
 ```
 
+### Fold
+
+Folding involves the use of a higher-order function to analyze a recursive data structure and, by applying a given combining operation, recombine the results of processing its subparts, building up a return value:
+
+```Example
+val list = List(1, 2, 3, 4, 5)
+val sum = list.fold(0)((x, y) => x + y)
+assert(sum == 15)
+```
+
+The fold method takes two sets of arguments. One contains a start value and the other a combining function. It then steps through the list, recursively applying the function to two operands: an accumulated value and the next element in the list.
+
+### foldLeft
+
+foldLeft iterates through the list from left to right, accumulating elements in that order. This also means that when processing the two operands to the combining function, the accumulator is the argument on the left:
+
+```Example
+val foldedList = persons.foldLeft(List[String]()) { (accumulator, person) =>
+  val title = person.sex match {
+    case "male" => "Mr."
+    case "female" => "Ms."
+  }
+  accumulator :+ s"$title ${person.name}"
+}
+assert(foldedList == List("Mr. Thomas", "Mr. Sowell", "Ms. Liz"))
+```
+
+### foldRight
+
+foldRight iterates through the list from right to left, accumulating elements in that order.
+
+```Example
+val foldedList = persons.foldRight(List[String]()) { (person, accumulator) =>
+  val title = person.sex match {
+    case "male" => "Mr."
+    case "female" => "Ms."
+  }
+  accumulator :+ s"$title ${person.name}"
+}
+assert(foldedList == List("Ms. Liz", "Mr. Sowell", "Mr. Thomas"))
+```
 --- 
 
 **Sources:**
