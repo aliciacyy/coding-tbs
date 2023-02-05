@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/coding-tbs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.728842547489">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.728884672964">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -32,11 +32,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/coding-tbs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../favicon.png" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.728842547489" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.728884672964" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.728842547489" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.728884672964" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.728842547489" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.728884672964" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -261,6 +261,56 @@ result match {
             // Right child for success
             Right(name)
     }</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="fold">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#fold">#</doc-anchor-trigger>
+        <span>Fold</span>
+    </h3>
+</doc-anchor-target>
+<p>Folding involves the use of a higher-order function to analyze a recursive data structure and, by applying a given combining operation, recombine the results of processing its subparts, building up a return value:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Example</div>
+<pre class="language-none"><code v-pre class="language-none">val list = List(1, 2, 3, 4, 5)
+val sum = list.fold(0)((x, y) =&gt; x + y)
+assert(sum == 15)</code></pre>
+</doc-codeblock></div>
+<p>The fold method takes two sets of arguments. One contains a start value and the other a combining function. It then steps through the list, recursively applying the function to two operands: an accumulated value and the next element in the list.</p>
+<doc-anchor-target id="foldleft">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#foldleft">#</doc-anchor-trigger>
+        <span>foldLeft</span>
+    </h3>
+</doc-anchor-target>
+<p>foldLeft iterates through the list from left to right, accumulating elements in that order. This also means that when processing the two operands to the combining function, the accumulator is the argument on the left:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Example</div>
+<pre class="language-none"><code v-pre class="language-none">val foldedList = persons.foldLeft(List[String]()) { (accumulator, person) =&gt;
+  val title = person.sex match {
+    case &quot;male&quot; =&gt; &quot;Mr.&quot;
+    case &quot;female&quot; =&gt; &quot;Ms.&quot;
+  }
+  accumulator :+ s&quot;$title ${person.name}&quot;
+}
+assert(foldedList == List(&quot;Mr. Thomas&quot;, &quot;Mr. Sowell&quot;, &quot;Ms. Liz&quot;))</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="foldright">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#foldright">#</doc-anchor-trigger>
+        <span>foldRight</span>
+    </h3>
+</doc-anchor-target>
+<p>foldRight iterates through the list from right to left, accumulating elements in that order.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Example</div>
+<pre class="language-none"><code v-pre class="language-none">val foldedList = persons.foldRight(List[String]()) { (person, accumulator) =&gt;
+  val title = person.sex match {
+    case &quot;male&quot; =&gt; &quot;Mr.&quot;
+    case &quot;female&quot; =&gt; &quot;Ms.&quot;
+  }
+  accumulator :+ s&quot;$title ${person.name}&quot;
+}
+assert(foldedList == List(&quot;Ms. Liz&quot;, &quot;Mr. Sowell&quot;, &quot;Mr. Thomas&quot;))</code></pre>
 </doc-codeblock></div>
 <hr />
 <p><strong>Sources:</strong></p>
