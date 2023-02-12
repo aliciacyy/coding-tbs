@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/coding-tbs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.728884672964">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729488098840">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -32,11 +32,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/coding-tbs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../favicon.png" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.728884672964" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729488098840" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.728884672964" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729488098840" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.728884672964" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729488098840" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -312,12 +312,60 @@ assert(foldedList == List(&quot;Mr. Thomas&quot;, &quot;Mr. Sowell&quot;, &quot;
 }
 assert(foldedList == List(&quot;Ms. Liz&quot;, &quot;Mr. Sowell&quot;, &quot;Mr. Thomas&quot;))</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="apply">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#apply">#</doc-anchor-trigger>
+        <span>Apply</span>
+    </h3>
+</doc-anchor-target>
+<p>The apply method is like a constructor which takes arguments and creates an object</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">object CustomerID {
+  def apply(name: String) = s&quot;$name--${Random.nextLong()}&quot;
+}
+val customer1ID = CustomerID(&quot;Sukyoung&quot;)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="unapply">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#unapply">#</doc-anchor-trigger>
+        <span>Unapply</span>
+    </h3>
+</doc-anchor-target>
+<p>Unapply takes an object and tries to give back the arguments. This is most often used in pattern matching and partial functions.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">object CustomerID {
+  def unapply(customerID: String): Option[String] = {
+    val stringArray: Array[String] = customerID.split(&quot;--&quot;)
+    if (stringArray.tail.nonEmpty) Some(stringArray.head) else None
+  }
+}
+
+customer1ID match {
+  case CustomerID(name) =&gt; println(name)  // prints Sukyoung
+  case _ =&gt; println(&quot;Could not extract a CustomerID&quot;)
+}</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">val customer2ID = CustomerID(&quot;Nico&quot;)
+val CustomerID(name) = customer2ID
+println(name)  // prints Nico
+</code></pre>
+</doc-codeblock></div>
+<p>This is equivalent to <code v-pre>val name = CustomerID.unapply(customer2ID).get.</code></p>
+<p>If there is no match, a scala.MatchError is thrown.</p>
+<p>The return type of an unapply should be chosen as follows:</p>
+<ul>
+<li>If it is just a test, return a Boolean. For instance case even().</li>
+<li>If it returns a single sub-value of type T, return an Option[T].</li>
+<li>If you want to return several sub-values T1,...,Tn, group them in an optional tuple Option[(T1,...,Tn)].</li>
+</ul>
 <hr />
 <p><strong>Sources:</strong></p>
 <ul>
 <li><a href="https://www.baeldung.com/scala/">https://www.baeldung.com/scala/</a></li>
 <li><a href="https://www.geeksforgeeks.org/scala-either/">https://www.geeksforgeeks.org/scala-either/</a></li>
 <li><a href="https://www.scala-lang.org/api/2.13.6/scala/util/Either.html">https://www.scala-lang.org/api/2.13.6/scala/util/Either.html</a></li>
+<li><a href="https://docs.scala-lang.org/tour/extractor-objects.html">https://docs.scala-lang.org/tour/extractor-objects.html</a></li>
 </ul>
 
                                 
