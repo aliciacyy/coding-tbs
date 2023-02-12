@@ -115,9 +115,53 @@ val foldedList = persons.foldRight(List[String]()) { (person, accumulator) =>
 }
 assert(foldedList == List("Ms. Liz", "Mr. Sowell", "Mr. Thomas"))
 ```
+
+### Apply
+The apply method is like a constructor which takes arguments and creates an object
+
+```
+object CustomerID {
+  def apply(name: String) = s"$name--${Random.nextLong()}"
+}
+val customer1ID = CustomerID("Sukyoung")
+```
+
+### Unapply
+Unapply takes an object and tries to give back the arguments. This is most often used in pattern matching and partial functions.
+
+```
+object CustomerID {
+  def unapply(customerID: String): Option[String] = {
+    val stringArray: Array[String] = customerID.split("--")
+    if (stringArray.tail.nonEmpty) Some(stringArray.head) else None
+  }
+}
+
+customer1ID match {
+  case CustomerID(name) => println(name)  // prints Sukyoung
+  case _ => println("Could not extract a CustomerID")
+}
+```
+
+```
+val customer2ID = CustomerID("Nico")
+val CustomerID(name) = customer2ID
+println(name)  // prints Nico
+
+```
+This is equivalent to `val name = CustomerID.unapply(customer2ID).get.`
+
+If there is no match, a scala.MatchError is thrown.
+
+The return type of an unapply should be chosen as follows:
+
+- If it is just a test, return a Boolean. For instance case even().
+- If it returns a single sub-value of type T, return an Option[T].
+- If you want to return several sub-values T1,...,Tn, group them in an optional tuple Option[(T1,...,Tn)].
 --- 
 
 **Sources:**
 - https://www.baeldung.com/scala/
 - https://www.geeksforgeeks.org/scala-either/
 - https://www.scala-lang.org/api/2.13.6/scala/util/Either.html
+- https://docs.scala-lang.org/tour/extractor-objects.html
