@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/coding-tbs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729488098840">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729491903091">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -32,11 +32,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/coding-tbs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../favicon.png" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.729488098840" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729491903091" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729488098840" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729491903091" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729488098840" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729491903091" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.729491903091" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -287,6 +288,33 @@ const newObj = {...oldObj, newProp: 5}</code></pre>
     ...person
 }</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="arrow-functions-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#arrow-functions-1">#</doc-anchor-trigger>
+        <span>Arrow functions</span>
+    </h3>
+</doc-anchor-target>
+<p>An arrow function expression is a compact alternative to a traditional function expression, with some semantic differences and deliberate limitations in usage:</p>
+<ul>
+<li>Arrow functions don&#x27;t have their own bindings to this, arguments, or super, and should not be used as methods.</li>
+<li>Arrow functions cannot be used as constructors. Calling them with new throws a TypeError. They also don&#x27;t have access to the new.target keyword.</li>
+<li>Arrow functions cannot use yield within their body and cannot be created as generator functions.</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-yaml"><code v-pre class="language-yaml">param =&gt; expression
+
+(param) =&gt; expression
+
+(param1, paramN) =&gt; expression
+
+param =&gt; {
+  statements
+}
+
+(param1, paramN) =&gt; {
+  statements
+}</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -353,6 +381,6 @@ const newObj = {...oldObj, newProp: 5}</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Javascript", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Javascript", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
