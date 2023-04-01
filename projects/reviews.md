@@ -106,6 +106,20 @@ jobs:
 #### Deployment
 Github Pages will be automatically deployed whenever changes are pushed to the branch due to Github Actions.
 
+### Troubleshooting
+
+#### No matching version found for vuepress-vite@2.0.0-beta.50-pre.1.
+
+Fix by removing `^` to fix the version
+
+```
+"vuepress": "2.0.0-beta.61"
+```
+
+#### Adding sidebars
+Refer to these:
+- https://vuepress.github.io/reference/default-theme/config.html#sidebar
+- https://techformist.com/automatic-dynamic-sidebar-vuepress/
 
 ### Official guides
 - <a href="https://vuepress.github.io/guide/deployment.html" target="_blank">Deployment</a>
