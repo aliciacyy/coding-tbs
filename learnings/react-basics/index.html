@@ -4,39 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/coding-tbs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.733633893374">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737734389960">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>React</title>
-    <meta name="title" content="React">
-    <meta name="description" content="<p componentName=\"\">Create .js</p>\n" />
+    <title>React (Basics)</title>
+    <meta name="title" content="React (Basics)">
+    <meta name="description" content="npx create-react-app project-name" />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://aliciacyy.github.io/coding-tbs/learnings/react/" />
+    <link rel="canonical" href="https://aliciacyy.github.io/coding-tbs/learnings/react-basics/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aliciacyy.github.io/coding-tbs/learnings/react/">
-    <meta property="og:title" content="React">
-    <meta property="og:description" content="<p componentName=\"\">Create .js</p>\n">
+    <meta property="og:url" content="https://aliciacyy.github.io/coding-tbs/learnings/react-basics/">
+    <meta property="og:title" content="React (Basics)">
+    <meta property="og:description" content="npx create-react-app project-name">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://aliciacyy.github.io/coding-tbs/learnings/react/">
-    <meta property="twitter:title" content="React">
-    <meta property="twitter:description" content="<p componentName=\"\">Create .js</p>\n">
+    <meta property="twitter:url" content="https://aliciacyy.github.io/coding-tbs/learnings/react-basics/">
+    <meta property="twitter:title" content="React (Basics)">
+    <meta property="twitter:description" content="npx create-react-app project-name">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/coding-tbs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../favicon.png" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.733633893374" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.737734389960" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.733633893374" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.737734389960" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.733633893374" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.737734389960" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -182,10 +182,10 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="react" class="break-words">
+<doc-anchor-target id="react-basics" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#react">#</doc-anchor-trigger>
-        <span>React</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#react-basics">#</doc-anchor-trigger>
+        <span>React (Basics)</span>
     </h1>
 </doc-anchor-target>
 <doc-anchor-target id="basics">
@@ -194,6 +194,13 @@
         <span>Basics</span>
     </h2>
 </doc-anchor-target>
+<doc-anchor-target id="start-a-react-project">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#start-a-react-project">#</doc-anchor-trigger>
+        <span>Start a React project</span>
+    </h3>
+</doc-anchor-target>
+<p><code v-pre>npx create-react-app &lt;project-name&gt;</code></p>
 <doc-anchor-target id="building-a-component">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#building-a-component">#</doc-anchor-trigger>
@@ -244,10 +251,10 @@ function ExpenseItem(props) {
   );
 }</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="passing-data-via-props">
+<doc-anchor-target id="passing-data-via-props-parent-to-child">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#passing-data-via-props">#</doc-anchor-trigger>
-        <span>Passing data via props</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#passing-data-via-props-parent-to-child">#</doc-anchor-trigger>
+        <span>Passing data via props (parent to child)</span>
     </h3>
 </doc-anchor-target>
 <p>First add the props to constructor, then get from props.</p>
@@ -271,7 +278,534 @@ function ExpenseItem(props) {
   date={props.expenses[0].date} /&gt;
 </code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="event-handling">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#event-handling">#</doc-anchor-trigger>
+        <span>Event handling</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&lt;button onClick={clickHandler}&gt;
+
+const clickHandler = () =&gt; {
+  console.log('clicked!');
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="states">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#states">#</doc-anchor-trigger>
+        <span>States</span>
+    </h3>
+</doc-anchor-target>
+<p>Use states to store data and trigger re-render</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import { useState } from 'react';
+const [enteredTitle, setEnteredTitle] = useState('');
+
+// to use as object
+const [userInput, setUserInput] = useState({
+  enteredTitle: '',
+  enteredAmount: '',
+  enteredDate: '',
+});
+
+// set value
+&lt;input type=&quot;text&quot; value={enteredTitle} onChange={titleChangeHandler}&gt;&lt;/input&gt;
+
+const titleChangeHandler = (event) =&gt; {
+  setEnteredTitle(event.target.value);
+}
+
+// set if using the object way but updating only 1 field
+ setUserInput((prevState) =&gt; {
+    return {...prevState, enteredTitle: event.target.value};
+});</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="updating-states-based-on-older-states">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#updating-states-based-on-older-states">#</doc-anchor-trigger>
+        <span>Updating states based on older states</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const [counter, setCounter] = React.useState(0);
+    
+const increase = () =&gt; {
+    setCounter((prevState) =&gt; prevState + 1);
+}
+
+return (
+  &lt;div&gt;
+    &lt;p id=&quot;counter&quot;&gt;{counter}&lt;/p&gt;
+    &lt;button onClick={increase}&gt;Increment&lt;/button&gt;
+  &lt;/div&gt;
+);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="passing-data-via-props-parent-to-child-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#passing-data-via-props-parent-to-child-1">#</doc-anchor-trigger>
+        <span>Passing data via props (parent to child)</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Child component to have a prop</li>
+<li>Parent component listens to prop</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">// child
+const ExpenseForm = (props) =&gt; {
+  ...
+  const submitHandler = (event) =&gt; {
+    event.preventDefault();
+    const expenseData = {
+        title: enteredTitle,
+        amount: enteredAmount,
+        date: new Date(enteredDate),
+    };
+    props.onSaveExpenseData(expenseData);
+  }
+}
+
+// parent
+&lt;ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler}/&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="two-way-binding-stateful-component">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#two-way-binding-stateful-component">#</doc-anchor-trigger>
+        <span>Two way binding (stateful component)</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">Also known as controlled component. The set and return value is in the parent component.
+
+&lt;input type=&quot;text&quot; value={enteredTitle} onChange={titleChangeHandler}&gt;&lt;/input&gt;
+</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="stateless-component">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#stateless-component">#</doc-anchor-trigger>
+        <span>Stateless component</span>
+    </h3>
+</doc-anchor-target>
+<p>Has no state, just there to output some data.</p>
+<doc-anchor-target id="dyanmic-output">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#dyanmic-output">#</doc-anchor-trigger>
+        <span>Dyanmic output</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">{props.expenses.map((p) =&gt; (
+  &lt;ExpenseItem title={p.title} 
+  amount={p.amount} date={p.date} /&gt;
+))}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="conditional-content">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#conditional-content">#</doc-anchor-trigger>
+        <span>Conditional Content</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">let expensesContent = &lt;p&gt;No expenses found&lt;/p&gt; ;
+
+if (filterArr.length &gt; 0) {
+  expensesContent = filterArr.map((p) =&gt; (
+      &lt;ExpenseItem 
+      key={p.id}
+      title={p.title} 
+      amount={p.amount} date={p.date} /&gt;
+    ))
+}
+
+return (
+  &lt;div&gt;
+    &lt;Card className=&quot;expenses&quot;&gt;
+      &lt;ExpensesFilter
+        selected={filterYear}
+        onFilterChange={filterChangeHandler}
+      /&gt;
+      {expensesContent}
+    &lt;/Card&gt;
+  &lt;/div&gt;
+);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="adding-styles">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#adding-styles">#</doc-anchor-trigger>
+        <span>Adding styles</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&lt;input style={{
+          borderColor: !isValid ? 'red' : 'black',
+          background: !isValid ? 'salmon' : 'transparent'
+        }} type=&quot;text&quot; onChange={goalInputChangeHandler} /&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="add-css-classes-dynamically">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#add-css-classes-dynamically">#</doc-anchor-trigger>
+        <span>Add CSS classes dynamically</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&lt;div className={`form-control ${!isValid ? 'invalid' : ''}`}&gt;
+  &lt;label&gt;Course Goal&lt;/label&gt;
+  &lt;input type=&quot;text&quot; onChange={goalInputChangeHandler} /&gt;
+&lt;/div&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="styled-components">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#styled-components">#</doc-anchor-trigger>
+        <span>Styled components</span>
+    </h3>
+</doc-anchor-target>
+<p>So that the CSS classes are unique to the components.</p>
+<p><code v-pre>npm install --save styled-components</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import styled from 'styled-components';
+
+const Button = styled.button`
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #8b005d;
+  color: white;
+  background: #8b005d;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+
+&amp;:focus {
+  outline: none;
+}
+`;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="using-css-modules">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-css-modules">#</doc-anchor-trigger>
+        <span>Using CSS Modules</span>
+    </h3>
+</doc-anchor-target>
+<p>Need to name css files as <code v-pre>&lt;name&gt;.modules.css</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import styles from './Button.module.css';
+
+const Button = props =&gt; {
+  return (
+    &lt;button type={props.type} className={styles.button} onClick={props.onClick}&gt; 
+      {props.children}
+    &lt;/button&gt;
+  )
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="dynamic-styles-with-css-modules">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#dynamic-styles-with-css-modules">#</doc-anchor-trigger>
+        <span>Dynamic styles with CSS Modules</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">return (
+    &lt;form onSubmit={formSubmitHandler}&gt;
+      &lt;div className={`${styles['form-control']} ${!isValid &amp;&amp; styles.invalid}`}&gt;
+        &lt;label&gt;Course Goal&lt;/label&gt;
+        &lt;input type=&quot;text&quot; onChange={goalInputChangeHandler} /&gt;
+      &lt;/div&gt;
+      &lt;Button type=&quot;submit&quot;&gt;Add Goal&lt;/Button&gt;
+    &lt;/form&gt;
+  );</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="use-reactfragment-to-avoid-wrapping-in-div">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#use-reactfragment-to-avoid-wrapping-in-div">#</doc-anchor-trigger>
+        <span>Use React.Fragment to avoid wrapping in div</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&lt;React.Fragment&gt;
+  &lt;AddUser onAddUser={handleAddUser}&gt;&lt;/AddUser&gt;
+  &lt;UsersList users={usersList}&gt;&lt;/UsersList&gt;
+&lt;/React.Fragment&gt;</code></pre>
+</doc-codeblock></div>
+<p>or use <code v-pre>&lt;&gt;</code> and <code v-pre>&lt;/&gt;</code></p>
+<doc-anchor-target id="use-portals-to-render-in-different-places">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#use-portals-to-render-in-different-places">#</doc-anchor-trigger>
+        <span>Use portals to render in different places</span>
+    </h3>
+</doc-anchor-target>
+<p>Set an element with id
+<code v-pre>&lt;div id=&quot;backdrop-root&quot;&gt;&lt;/div&gt;</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import ReactDOM from &quot;react-dom&quot;;
+
+const Backdrop = (props) =&gt; {
+  return &lt;div className={styles.backdrop} onClick={props.onConfirm}&gt;&lt;/div&gt;;
+};
+
+const ErrorModal = (props) =&gt; {
+  return (
+    &lt;&gt;
+      {ReactDOM.createPortal(
+        &lt;Backdrop onConfirm={props.onConfirm}&gt;&lt;/Backdrop&gt;,
+        document.getElementById(&quot;backdrop-root&quot;)
+      )}
+    &lt;/&gt;
+  );
+};
+</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="using-refs">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-refs">#</doc-anchor-trigger>
+        <span>Using refs</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import { useRef } from &quot;react&quot;;
+
+const nameInputRef = useRef();
+
+&lt;input
+  id=&quot;username&quot;
+  type=&quot;text&quot;
+  ref={nameInputRef}
+/&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="useeffect-hook">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#useeffect-hook">#</doc-anchor-trigger>
+        <span>useEffect hook</span>
+    </h3>
+</doc-anchor-target>
+<p>Can be used for avoiding infinite state update loops, for side effects.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import React, { useState, useEffect } from 'react';
+
+const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+// first param is the function to run, second param is dependencies that will cause function to run if they are changed. so empty means run once.
+useEffect(() =&gt; {
+  const isUsedLogged =localStorage.getItem('isLoggedIn');
+
+  if (isUsedLogged === '1') {
+    setIsLoggedIn(true);
+  }
+}, [])
+
+If we don't add `[]`, then it reruns for every change.
+</code></pre>
+</doc-codeblock></div>
+<p>Execute function only when dependencies are changed.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">  useEffect(() =&gt; {
+    setFormIsValid(
+      enteredEmail.includes('@') &amp;&amp; enteredPassword.trim().length &gt; 6
+    );
+  }, [enteredEmail, enteredPassword]);</code></pre>
+</doc-codeblock></div>
+<p>Clean up function runs before state function runs, but not before the first time it runs.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">useEffect(() =&gt; {
+  ...
+
+  // clean up function
+  return () =&gt; {
+    ...
+  }
+});</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="usereducer">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#usereducer">#</doc-anchor-trigger>
+        <span>useReducer()</span>
+    </h3>
+</doc-anchor-target>
+<p>Can be used as replacement for useState() if you need &quot;more powerful state management&quot;.</p>
+<p><code v-pre>const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);</code></p>
+<ul>
+<li>state: snapshot used in the component re-render/re-evaluation cycle</li>
+<li>dispatchFn: function that can be used to dispatch a new action (i.e. trigger an update of the state)</li>
+<li>reducerFn: (prevState, action) =&gt; newState. A function that is triggered automatically once an action is dispatched (via dispatchFn()) - it receives the latest state snapshot and should return the new, updated state.</li>
+<li>initialState: the initial state</li>
+<li>initFn: function to set the initial state program</li>
+</ul>
+<doc-anchor-target id="context-api---producer">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#context-api---producer">#</doc-anchor-trigger>
+        <span>Context API - Producer</span>
+    </h3>
+</doc-anchor-target>
+<p>Add a producer:</p>
+<p>Create a file <code v-pre>store/auth-context.js</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import React from 'react';
+
+const AuthContext = React.createContext({
+    isLoggedIn: false
+});
+
+export default AuthContext;</code></pre>
+</doc-codeblock></div>
+<p>Then wrap in the component</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">return (
+    &lt;AuthContext.Provider value={{
+      isLoggedIn: isLoggedIn
+    }}&gt;
+      &lt;MainHeader onLogout={logoutHandler} /&gt;
+      &lt;main&gt;
+        {!isLoggedIn &amp;&amp; &lt;Login onLogin={loginHandler} /&gt;}
+        {isLoggedIn &amp;&amp; &lt;Home onLogout={logoutHandler} /&gt;}
+      &lt;/main&gt;
+    &lt;/AuthContext.Provider&gt;
+  );</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="context-api---consumer">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#context-api---consumer">#</doc-anchor-trigger>
+        <span>Context API - Consumer</span>
+    </h3>
+</doc-anchor-target>
+<p>Method 1 - Use AuthContext.Consumer</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import AuthContext from '../../store/auth-context';
+
+return (
+    &lt;AuthContext.Consumer&gt;
+      {(ctx) =&gt; {
+        return (
+          &lt;nav className={classes.nav}&gt;
+            &lt;ul&gt;
+              {ctx.isLoggedIn &amp;&amp; (
+                &lt;li&gt;
+                  &lt;a href=&quot;/&quot;&gt;Users&lt;/a&gt;
+                &lt;/li&gt;
+              )}
+              ...
+            &lt;/ul&gt;
+          &lt;/nav&gt;
+        )
+      }}
+    &lt;/AuthContext.Consumer&gt;
+  );</code></pre>
+</doc-codeblock></div>
+<p>Method 2 (RECOMMENDED) - useContext hook</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import AuthContext from '../../store/auth-context';
+
+const Navigation = (props) =&gt; {
+  const ctx = useContext(AuthContext);
+
+  return (
+    &lt;nav className={classes.nav}&gt;
+      &lt;ul&gt;
+        {ctx.isLoggedIn &amp;&amp; (
+          &lt;li&gt;
+            &lt;a href=&quot;/&quot;&gt;Users&lt;/a&gt;
+          &lt;/li&gt;
+        )}
+        ...
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  );
+};</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="context-limitations">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#context-limitations">#</doc-anchor-trigger>
+        <span>Context limitations</span>
+    </h3>
+</doc-anchor-target>
+<p>React Context is NOT optimised for high frequency changes!</p>
+<doc-anchor-target id="rules-of-hooks">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#rules-of-hooks">#</doc-anchor-trigger>
+        <span>Rules of Hooks</span>
+    </h3>
+</doc-anchor-target>
+<p>Only call React Hooks in React Functions</p>
+<ul>
+<li>React Component Functions</li>
+<li>Custom hooks</li>
+</ul>
+<p>Only call Reack Hooks at the Top level</p>
+<ul>
+<li>Don&#x27;t call them in nested functions</li>
+<li>Don&#x27;t call them in any block statements</li>
+</ul>
+<p>ALWAYS add everything you refer to inside of useEffect() as a dependency.</p>
 <hr />
+<doc-anchor-target id="forward-refs">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#forward-refs">#</doc-anchor-trigger>
+        <span>Forward Refs</span>
+    </h3>
+</doc-anchor-target>
+<p>For when you want to expose things from child component so a parent component can use</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">// 1. useRef in parent
+const emailRef = useRef();
+
+//2. useImperativeHandle and  React.forwardRef in child
+import React, { useRef, useImperativeHandle } from &quot;react&quot;;
+
+const Input = React.forwardRef((props, ref) =&gt; {
+	const inputRef = useRef();
+
+	const activate = () =&gt; {
+		inputRef.current.focus();
+	}
+
+	useImperativeHandle(ref, () =&gt; {
+		return {
+			focus: activate	
+		}
+	});
+
+  ...
+})
+
+// 3. Call from parent
+if (!emailIsValid) {
+  emailRef.current.focus();
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="optimization-with-reactmemo">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#optimization-with-reactmemo">#</doc-anchor-trigger>
+        <span>Optimization with React.memo</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">export default React.memo(Button);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="usecallback">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#usecallback">#</doc-anchor-trigger>
+        <span>useCallback</span>
+    </h3>
+</doc-anchor-target>
+<p>Use Callback is a hook that allows us to store a function across component executions. So it allows us to tell React that we wanna save a function and that this function should not be recreated with every execution.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const handler = () =&gt; useCallback(() =&gt; {
+  ...
+}, []);</code></pre>
+</doc-codeblock></div>
+<p>This function has no dependecies and therfore will never change.</p>
+<doc-anchor-target id="usememo">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#usememo">#</doc-anchor-trigger>
+        <span>useMemo</span>
+    </h3>
+</doc-anchor-target>
+<p>useMemo basically allows you to memoize, so basically that means to store any kind of data which you want to store</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const { items } = props;
+
+const list = useMemo(() =&gt; {
+  return items.sort((a,b) =&gt; a- b);
+}, [items]);</code></pre>
+</doc-codeblock></div>
 <p><strong>Reference:</strong> <a href="https://www.udemy.com/course/react-the-complete-guide-incl-redux/">https://www.udemy.com/course/react-the-complete-guide-incl-redux/</a></p>
 
                                 
@@ -339,6 +873,6 @@ function ExpenseItem(props) {
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "React", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "React (Basics)", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
