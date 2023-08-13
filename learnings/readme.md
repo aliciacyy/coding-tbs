@@ -8,5 +8,6 @@ Documenting new stuff that I learnt.
 ## Pages
 
 - [AWS Services](../learnings/aws.md)
-- [React](../learnings/react-basics.md)
+- [React (Basics)](../learnings/react-basics.md)
+- [React (More)](../learnings/react-more.md)
 - [Scala](../learnings/scala.md)

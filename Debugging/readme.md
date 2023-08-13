@@ -6,10 +6,11 @@ order: 4
 A collection of solutions that worked for me while troubleshooting various coding problems.
 
 !!!
-I am using Windows, so the solutions may not be applicable for other OS.
+I am using Windows, so some solutions may not be applicable for other OS.
 !!!
 
 ## Sections
 
 - [Angular](../debugging/angular.md)
 - [Git](../debugging/git.md)
+- [React](../debugging/react.md)
