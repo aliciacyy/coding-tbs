@@ -206,6 +206,20 @@ return (
 </div>
 ```
 
+### Set property name dynamically
+```
+const inputChangeHandler = (input, value) => {
+  setUserInput((prevInput) => {
+    return {
+      ...prevInput,
+      [input]: value
+    };
+  });
+};
+
+<input onChange={(event) => inputChangeHandler('something', event.target.value)}>
+```
+
 ### Styled components
 So that the CSS classes are unique to the components.
 

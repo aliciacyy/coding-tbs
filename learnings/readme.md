@@ -10,4 +10,5 @@ Documenting new stuff that I learnt.
 - [AWS Services](../learnings/aws.md)
 - [React (Basics)](../learnings/react-basics.md)
 - [React (More)](../learnings/react-more.md)
+- [React (Redux)](../learnings/react-redux.md)
 - [Scala](../learnings/scala.md)
