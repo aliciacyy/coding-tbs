@@ -10,24 +10,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Javascript</title>
-    <meta name="title" content="Javascript">
-    <meta name="description" content="No more issues with the this keyword!">
+    <title>Steps</title>
+    <meta name="title" content="Steps">
+    <meta name="description" content="Install Firebase CLI">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://aliciacyy.github.io/coding-tbs/cheatsheet/javascript/">
+    <link rel="canonical" href="https://aliciacyy.github.io/coding-tbs/cheatsheet/firebase_hosting/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/javascript/">
-    <meta property="og:title" content="Javascript">
-    <meta property="og:description" content="No more issues with the this keyword!">
+    <meta property="og:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/firebase_hosting/">
+    <meta property="og:title" content="Steps">
+    <meta property="og:description" content="Install Firebase CLI">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/javascript/">
-    <meta property="twitter:title" content="Javascript">
-    <meta property="twitter:description" content="No more issues with the this keyword!">
+    <meta property="twitter:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/firebase_hosting/">
+    <meta property="twitter:title" content="Steps">
+    <meta property="twitter:description" content="Install Firebase CLI">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -37,7 +37,6 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748799953180" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748799953180" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748799953180" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -180,137 +179,52 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="javascript" class="break-words">
+<doc-anchor-target id="steps" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#javascript">#</doc-anchor-trigger>
-        <span>Javascript</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#steps">#</doc-anchor-trigger>
+        <span>Steps</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="arrow-functions">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#arrow-functions">#</doc-anchor-trigger>
-        <span>Arrow functions</span>
-    </h3>
-</doc-anchor-target>
+<ol>
+<li>Install Firebase CLI</li>
+</ol>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">const myFnc = () = {
-    ...
-}</code></pre>
+<pre class="language-none"><code v-pre class="language-none">npm install firebase
+npm install -g firebase-tools</code></pre>
 </doc-codeblock></div>
-<p>No more issues with the <code v-pre>this</code> keyword!</p>
-<doc-anchor-target id="exports-and-imports">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#exports-and-imports">#</doc-anchor-trigger>
-        <span>Exports and Imports</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="default-export">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#default-export">#</doc-anchor-trigger>
-        <span>Default export</span>
-    </h4>
-</doc-anchor-target>
+<ol start="2">
+<li>Login to Firebase</li>
+</ol>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">import person from './person.js'</code></pre>
+<pre class="language-none"><code v-pre class="language-none">firebase login --interactive</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="named-export">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#named-export">#</doc-anchor-trigger>
-        <span>Named export</span>
-    </h4>
-</doc-anchor-target>
+<ol start="3">
+<li>Init firebase</li>
+</ol>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">import { smth } from './utility.js'
-import * as bundled from './utility.js'</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="classes">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#classes">#</doc-anchor-trigger>
-        <span>Classes</span>
-    </h3>
-</doc-anchor-target>
-<p>Classes are a feature which basically replace constructor functions and prototypes. You can define blueprints for JavaScript objects with them.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">class Human {
-    constructor() {
-        this.gender = 'male';
-    }
-}
-class Person extends Human {
-    constructor() {
-        super();
-        this.name = 'test';
-    }
-}
-const person = new Person();</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="spreadrest-operators">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#spreadrest-operators">#</doc-anchor-trigger>
-        <span>Spread/Rest operators</span>
-    </h3>
-</doc-anchor-target>
-<p>Spread is used to split up array elements or object properties</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">const arr = [...oldArr, 1, 2]
-const newObj = {...oldObj, newProp: 5}</code></pre>
-</doc-codeblock></div>
-<p>Rest is used to merge a list of function arguments into an array</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">function sortArgs(...args) {
-    return args.sort()
-}</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="destructing">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#destructing">#</doc-anchor-trigger>
-        <span>Destructing</span>
-    </h3>
-</doc-anchor-target>
-<p>Easily extract array elements or object properties and store them in variables</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[a, b] = ['Hello', 'World']
-{name} = {name: 'Name', age: 1}</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="reference-and-primitive-types">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#reference-and-primitive-types">#</doc-anchor-trigger>
-        <span>Reference and primitive types</span>
-    </h3>
-</doc-anchor-target>
-<p>Objects and arrays are reference types (just copy the pointer)</p>
-<p>Use spread operator to copy.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">const secondPerson = {
-    ...person
-}</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="arrow-functions-1">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#arrow-functions-1">#</doc-anchor-trigger>
-        <span>Arrow functions</span>
-    </h3>
-</doc-anchor-target>
-<p>An arrow function expression is a compact alternative to a traditional function expression, with some semantic differences and deliberate limitations in usage:</p>
-<ul>
-<li>Arrow functions don&#x27;t have their own bindings to this, arguments, or super, and should not be used as methods.</li>
-<li>Arrow functions cannot be used as constructors. Calling them with new throws a TypeError. They also don&#x27;t have access to the new.target keyword.</li>
-<li>Arrow functions cannot use yield within their body and cannot be created as generator functions.</li>
-</ul>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-yaml"><code v-pre class="language-yaml">param =&gt; expression
+<pre class="language-none"><code v-pre class="language-none">firebase init
 
-(param) =&gt; expression
+? Are you ready to proceed? Yes
+? Which Firebase features do you want to set up for this directory? Press Space to select features, then Enter to
+confirm your choices. Hosting: Configure files for Firebase Hosting and (optionally) set up GitHub Action deploys
 
-(param1, paramN) =&gt; expression
+? What do you want to use as your public directory? build
+? Configure as a single-page app (rewrite all urls to /index.html)? Yes
+? Set up automatic builds and deploys with GitHub? No
+? File build/index.html already exists. Overwrite? No
+i  Skipping write of build/index.html
 
-param =&gt; {
-  statements
-}
+i  Writing configuration info to firebase.json...
+i  Writing project information to .firebaserc...
 
-(param1, paramN) =&gt; {
-  statements
-}</code></pre>
++  Firebase initialization complete!</code></pre>
+</doc-codeblock></div>
+<ol start="4">
+<li>Deploying</li>
+</ol>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">npm run build
+firebase deploy</code></pre>
 </doc-codeblock></div>
 
                                 
@@ -321,20 +235,20 @@ param =&gt; {
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../cheatsheet/git/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../cheatsheet/angular/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Git</span>
+                                                <span class="block mt-1">Angular</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../cheatsheet/react/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../cheatsheet/git/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">React</span>
+                                                <span class="block mt-1">Git</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -378,6 +292,6 @@ param =&gt; {
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Javascript", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Firebase Hosting", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
