@@ -4,39 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/coding-tbs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748799953180">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.761762265189">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>React (More)</title>
-    <meta name="title" content="React (More)">
-    <meta name="description" content="The function name MUST start with use">
+    <title>React (Router)</title>
+    <meta name="title" content="React (Router)">
+    <meta name="description" content="npm install react-router-dom">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://aliciacyy.github.io/coding-tbs/learnings/react-more/">
+    <link rel="canonical" href="https://aliciacyy.github.io/coding-tbs/learnings/react-router/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aliciacyy.github.io/coding-tbs/learnings/react-more/">
-    <meta property="og:title" content="React (More)">
-    <meta property="og:description" content="The function name MUST start with use">
+    <meta property="og:url" content="https://aliciacyy.github.io/coding-tbs/learnings/react-router/">
+    <meta property="og:title" content="React (Router)">
+    <meta property="og:description" content="npm install react-router-dom">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://aliciacyy.github.io/coding-tbs/learnings/react-more/">
-    <meta property="twitter:title" content="React (More)">
-    <meta property="twitter:description" content="The function name MUST start with use">
+    <meta property="twitter:url" content="https://aliciacyy.github.io/coding-tbs/learnings/react-router/">
+    <meta property="twitter:title" content="React (Router)">
+    <meta property="twitter:description" content="npm install react-router-dom">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.748799953180" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.761762265189" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748799953180" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.761762265189" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748799953180" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.761762265189" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -179,125 +179,149 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="react-more" class="break-words">
+<doc-anchor-target id="react-router" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#react-more">#</doc-anchor-trigger>
-        <span>React (More)</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#react-router">#</doc-anchor-trigger>
+        <span>React (Router)</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="api-calls">
+<doc-anchor-target id="install-router">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#api-calls">#</doc-anchor-trigger>
-        <span>API calls</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#install-router">#</doc-anchor-trigger>
+        <span>Install router</span>
     </h2>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">async function fetchMoviesHandler() {
-    const response = await fetch(&quot;https://swapi.dev/api/films/&quot;);
-    const data = await response.json();
-    const transformed = data.results.map((d) =&gt; {
-      return {
-        id: d.episode_id,
-        title: d.title,
-        openingText: d.opening_crawl,
-        releaseDate: d.release_date,
-      };
-    });
-    setMovies(transformed);
-  }</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="custom-hooks">
+<p><code v-pre>npm install react-router-dom</code></p>
+<doc-anchor-target id="adding-router">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#custom-hooks">#</doc-anchor-trigger>
-        <span>Custom hooks</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#adding-router">#</doc-anchor-trigger>
+        <span>Adding router</span>
     </h2>
 </doc-anchor-target>
-<p>The function name MUST start with <code v-pre>use</code></p>
+<p>HomePage is a component.
+The element tag takes in JSX code.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">import {useState, useEffect} from 'react';
-const useCounter = (forwards = true) =&gt; {
-  const [counter, setCounter] = useState(0);
+<div class="codeblock-title">app.js</div>
+<pre class="language-none"><code v-pre class="language-none">import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-  useEffect(() =&gt; {
-    const interval = setInterval(() =&gt; {
-        if (forwards) {
-            setCounter((prevCounter) =&gt; prevCounter + 1);
-        } else {
-            setCounter((prevCounter) =&gt; prevCounter - 1);
-        }
-      
-    }, 1000);
+const router = createBrowserRouter([
+    {path: '/', element: &lt;HomePage /&gt;},
+    {path: '/products', element: &lt;ProductsPage/ &gt;}
+]);
 
-    return () =&gt; clearInterval(interval);
-  }, [forwards]);
-
-  return counter;  // can return anything
-};
-export default useCounter;</code></pre>
-</doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">import useCounter from '...'
-
-const ForwardCounter () =&gt; {
-    const counter = useCounter(false);
-}</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="validation">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#validation">#</doc-anchor-trigger>
-        <span>Validation</span>
-    </h2>
-</doc-anchor-target>
-<doc-anchor-target id="on-blur">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#on-blur">#</doc-anchor-trigger>
-        <span>On blur</span>
-    </h3>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">const nameInputBlurHandler = (event) =&gt; {
-    setEnteredNameTouched(true);
-
-    // add validation below...
+function App() {
+    return &lt;RouterProvider router={router}/&gt;;
 }
-
-&lt;input
-    onBlur={nameInputBlurHandler}
-&gt;</code></pre>
+</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="custom-input-hooks-example-with-form">
+<doc-anchor-target id="another-way-of-defining-routes">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#custom-input-hooks-example-with-form">#</doc-anchor-trigger>
-        <span>Custom input hooks example with form</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#another-way-of-defining-routes">#</doc-anchor-trigger>
+        <span>Another way of defining routes</span>
     </h2>
 </doc-anchor-target>
-<p>Create <code v-pre>use-input.js</code> file under <code v-pre>src&gt;hooks</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">import { useState } from 'react';
+<pre class="language-none"><code v-pre class="language-none">import { createBrowserRouter, createRoutersFromElements, Route } from 'react-router-dom';
 
-const useInput = (validateValue) =&gt; {
-    const [enteredValue, setEnteredValue] = useState('');
-    const [isTouched, setIsTouched] = useState(false);
+const routeDefinitions = createRoutersFromElements(
+    &lt;Route&gt;
+        &lt;Route path=&quot;/&quot; element={&lt;HomePage/&gt;}&gt;
+        &lt;Route path=&quot;/products&quot; element={&lt;ProductsPage/&gt;}&gt;
+    &lt;/Route&gt;
+)
 
-    const valueIsValid = validateValue(enteredValue);
-    const hasError = !valueIsValid &amp;&amp; isTouched;
+const router = createBrowerRouter(routeDefinitions);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="navigating-between-pages">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#navigating-between-pages">#</doc-anchor-trigger>
+        <span>Navigating between pages</span>
+    </h2>
+</doc-anchor-target>
+<p>Link component prevents the browser default of sending HTTP request and load the appropriate content.
+It will also change the URL without sending a new HTTP request.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">import { Link } from 'react-router-dom';
 
-    const valueChangeHandler = (event) =&gt; {
-        setEnteredValue(event.target.value);
-    }
-
-    const inputBlurHandler = (event) =&gt; {
-        setIsTouched(true);
-    }
-
-    return {
-        value: enteredValue, hasError, valueChangeHandler, inputBlurHandler
-    };
+function HomePage() {
+    return (
+        &lt;Link to=&quot;/products&quot;&gt;Click me&lt;/Link&gt;
+    )
 }</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="layouts-and-nested-routes">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#layouts-and-nested-routes">#</doc-anchor-trigger>
+        <span>Layouts and nested routes</span>
+    </h2>
+</doc-anchor-target>
+<p>Add an extra route to act as a wrapper</p>
+<p>Root.js</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">const { value: enteredName, hasError: nameError, valueChangeHandler: nameChangeHander, inputBlurHandler: nameBlur, } = useInput(value =&gt; value.trim() !== '');</code></pre>
+<pre class="language-none"><code v-pre class="language-none">import { Outlet } from 'react-router-dom';
+
+function RootLayout() {
+    return (
+        &lt;&gt;
+            &lt;Navigation/&gt;
+            &lt;Outlet/&gt;
+        &lt;&gt;
+    )
+}</code></pre>
 </doc-codeblock></div>
+<p>App.js</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const router = createBrowserRouter([
+    {
+        path: '/',
+        element: &lt;RootLayout/ &gt;,
+        children: [
+            {path: '/', element: &lt;HomePage /&gt;},
+            {path: '/products', element: &lt;ProductsPage/ &gt;}
+        ]
+    }
+]);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="show-error-page-with-errorelement">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#show-error-page-with-errorelement">#</doc-anchor-trigger>
+        <span>Show error page with errorElement</span>
+    </h2>
+</doc-anchor-target>
+<p>Error.js</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">function ErrorPage() {
+    return (
+        &lt;&gt;
+            &lt;MainNavigation /&gt;
+            &lt;main&gt;
+                Oops error
+            &lt;/main&gt;
+        &lt;&gt;
+    )
+}</code></pre>
+</doc-codeblock></div>
+<p>App.js</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const router = createBrowserRouter([
+    {
+        path: '/',
+        errorElement: &lt;ErrorPage /&gt;,
+        element: &lt;RootLayout/ &gt;,
+        children: [
+            {path: '/', element: &lt;HomePage /&gt;},
+            {path: '/products', element: &lt;ProductsPage/ &gt;}
+        ]
+    }
+]);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="using-navlink">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-navlink">#</doc-anchor-trigger>
+        <span>Using NavLink</span>
+    </h2>
+</doc-anchor-target>
+<p>For feedback for navigation.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -307,20 +331,20 @@ const useInput = (validateValue) =&gt; {
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../learnings/react-basics/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../learnings/react-redux/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">React (Basics)</span>
+                                                <span class="block mt-1">React (Redux)</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../learnings/react-redux/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../learnings/scala/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">React (Redux)</span>
+                                                <span class="block mt-1">Scala</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -335,7 +359,7 @@ const useInput = (validateValue) =&gt; {
                                     <ul class="flex flex-wrap items-center text-sm">
                                     </ul>
                                 </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2023 Alicia C. All rights reserved.</p></div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024 Alicia C. All rights reserved.</p></div>
                             </footer>
                         </div>
                     </div>
@@ -364,6 +388,6 @@ const useInput = (validateValue) =&gt; {
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "React (More)", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "React (Router)", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
