@@ -5,7 +5,7 @@ label: Scala
 ## Basics
 
 
-### Values
+## Values
 
 Syntax for declaring a value:
 ```
@@ -15,7 +15,7 @@ val x: Int = 42
 - Types of `val` are optional as compiler can infer types
 - Semicolons are allowed but not necesary
 
-### Variables
+## Variables
 ```
 var variable: Int = 4
 ```
@@ -24,7 +24,7 @@ var variable: Int = 4
 - All vals and vars have types
 - Changing variable is side effects
 
-### Instruction vs Expression
+## Instruction vs Expression
 - Instruction: Tells what to do (executed)
 - Expression: Has a value and/or type (evaluated)
 - In Scala, every single code will compute a value
@@ -37,17 +37,17 @@ val condition = if (true) 5 else 3
 - Loops are discouraged in Scala as they introduce side-effects and specific to imperative programming
 - Everything in Scala is an expression
 
-### Unit
+## Unit
 - Special type in Scala which is similar to `void`
 - Doesn't return anything, can only hold the value `()`
 - Side effects in Scala will return Unit
 
-### Side effects examples
+## Side effects examples
 - Printing to console
 - While loops
 - Reassigining
 
-### Code blocks
+## Code blocks
 ```
 val codeBlock = {
     val y = 2
@@ -58,7 +58,7 @@ val codeBlock = {
 - Code block is an expression
 - Value of a  block is the value of the last expression
 
-### Functions
+## Functions
 Syntax:
 ```
 def aFunction(a: String, b: Int): String =
@@ -100,7 +100,7 @@ def isPrime(n: Int): Boolean =
   isPrimeUntil(n / 2)
 ```
 
-### Recursion
+## Recursion
 
 Improved factorial
 ```
@@ -134,7 +134,7 @@ def fibo(n: Int): Int = {
 }
 ```
 
-### Call by name vs Call by value
+## Call by name vs Call by value
 ```
 def callByName(x: => Long)
 ```
@@ -142,7 +142,7 @@ def callByName(x: => Long)
 - by value: value is computed before call and same value is used everywhere
 - by name: expression is evaluated at every use
 
-### Default and named arguments
+## Default and named arguments
 
 ```
 def factHelper(x: Int, accumulator: Int = 1): Int =
@@ -158,7 +158,7 @@ pic(width = 800)
 ```
 - Can even pass with different order with named parameters
 
-### Strings
+## Strings
 - str.charAt(2)
 - str.substring(7, 11)
 - str.split(" ")
@@ -220,7 +220,7 @@ person.greet("Jane")
 class Writer(firstName: String)
 ```
 
-### Infix/operator notation
+## Infix/operator notation
 Only works with methods with only 1 parameter
 
 ```
@@ -229,7 +229,7 @@ mary likes "Inception"
 ```
 All operators are methods.
 
-### Prefix notation
+## Prefix notation
 All about unary operators.
 
 unvary_ prefix only works with - + ~ !
@@ -239,14 +239,14 @@ unvary_ prefix only works with - + ~ !
 mary.unary_!
 ```
 
-### Postfix notation
+## Postfix notation
 For methods with no parameters. Rarely used in practice.
 ```
 mary.isAlive
 mary isAlive
 ```
 
-### Apply
+## Apply
 Need to define a method called `apply`
 
 ```
@@ -254,7 +254,7 @@ mary.apply() same as
 mary()
 ```
 
-### Class level functionality
+## Class level functionality
 Scala does not have class level functionality ("static")
 ```
 // DONT HAVE THIS
@@ -272,29 +272,29 @@ object Person {
 - Scala object is a singleton instance.
 - Objects are in their own class
 
-### Companions
+## Companions
 - Can write `object Person` and `class Person` to separate singleton stuff.
 - Can access each other's private members
 
-### Scala Applications
+## Scala Applications
 - Scala object with `def main(args: Array[String]): Unit` or `extends App`
 - Need to pass in constructor arguments to parent class
 - Derived classes can override members or methods
 - Reuse parent fileds/methods with super
 
-### Prevent inheritance with `final` and `sealed`
+## Prevent inheritance with `final` and `sealed`
 - use final on member
 - use final on the entire class
 - seal the class (can extend classes in this file only, prevents extension in other files)
 
-### `abstract` classes and `traits`
+## `abstract` classes and `traits`
 - traits do not have constructor parameters
 - multiple traits may be inherited by the same class
 - traits = behaviour, abstract class = "thing"
 
 Inheriting from a class and multiple traits
 
-### Generics
+## Generics
 ```
 class MyList[A]
 class MyMap[Key, Value]
@@ -306,25 +306,25 @@ object MyList {
 }
 ```
 
-### Covariance
+## Covariance
 ```
 class CoList[+A]
 val list: CoList[Animal] = new CoList[Cat]
 ```
 
-### Invariance
+## Invariance
 ```
 class CoList[A]
 val list: CoList[Animal] = new CoList[Animal]
 ```
 
-### Contravariance
+## Contravariance
 ```
 class CoList[-A]
 val list: CoList[Cat] = new CoList[Animal]
 ```
 
-### Bounded types
+## Bounded types
 Restrict only for subclass of animal
 ```
 class Cage[A <: Animal](animal: A)
@@ -334,7 +334,7 @@ Restrict only for superclass of animal
 class Cage[A >: Animal](animal: A)
 ```
 
-### case
+## case
 ```
 case Class Person(name: String, age: Int)
 ```
@@ -348,12 +348,12 @@ Quick lightweight data structures with little boilerplate
 - Serializable
 - Have extractor patterns = can be used in pattern matching
 
-### Throw exceptions
+## Throw exceptions
 ```
 throw new NullPointerException
 ```
 
-### Catch exceptions
+## Catch exceptions
 ```
 try {
     // code that might fail
@@ -364,14 +364,14 @@ try {
 }
 ```
 
-### Define own exceptions
+## Define own exceptions
 ```
 class MyException extends Exception
 val expcetion = new MyException
 throw exception
 ```
 
-### Packages
+## Packages
 - A group of definitions under the same name
 - To use a definition, be in the same package or import the package
 - Best practice - mirror the file structure
@@ -384,7 +384,7 @@ import java.sql.{Date => SqlDate}
 ```
 
 ## Functional Programming
-### Functions
+## Functions
 All Scala functions are objects
 - Function traits up to 22 params
 ```
@@ -398,7 +398,7 @@ trait MyFunction[A, B] {
 }
 ```
 
-### Anonymous functions
+## Anonymous functions
 ```
 var doubler = (x: Int) => x * 2
 
@@ -409,7 +409,7 @@ val doSomething: () => Int () => 3
 val fancy: Int => Int = _ + 1 // same as x => x + 1
 ```
 
-### Higher order functions (HOF)
+## Higher order functions (HOF)
 - Functions that either take in other functions as parameters or returns a function as result 
 - Examples: map, flatMap, filter
 
@@ -436,7 +436,7 @@ val plus10 = nTimesBetter(plusOne, 10)
 println(plus10(1))
   ```
 
-### Curried functions
+## Curried functions
 - Functions with multiple parameter lists
 ```
 // receives an Int and returns another function
@@ -447,7 +447,7 @@ superAdder(3)(10)
 ```
 - Useful when you want to define helper functions that you want to use later on various values
 
-### flatMap
+## flatMap
 ```
 list = List(1,2,3)
 val toPair = (x: Int) => List(x, x+1)
@@ -462,7 +462,7 @@ val colors = List("black", "white")
 // List("a1", "a2"... "d4")
 ```
 
-### for-comprehensions
+## for-comprehensions
 ```
 // for-comprehensions
 val forCombinations = for {
@@ -473,7 +473,7 @@ val forCombinations = for {
 println(forCombinations)
 ```
 
-### Sequenecs: List, Array, Vector
+## Sequenecs: List, Array, Vector
 **Sequence**
 - General interface for DS that have a well defined order and can be index
 - e.g. `val seq = Seq(1,2,3,4)
@@ -511,7 +511,7 @@ numbers(2) = 0  // syntax sugar for numbers.update(2, 0)
 val vector: Vector[Int] = Vector(1,2,3)
 ```
 
-### Tuples and maps
+## Tuples and maps
 **Tuples**
 - Finite ordered "lists"
 - 1 indexed
@@ -533,7 +533,7 @@ val phonebook = Map(("Jim", 555), "Daniel" -> 789, ("JIM", 9000)).withDefaultVal
 // a -> b is sugar for (a, b)
 ```
 
-### Options
+## Options
 - Wrapper for a value that may be present or not
 - Use to avoid NPEs and null-related assertions
 ```
@@ -572,7 +572,7 @@ val betterChainedResult = betterUnsafeMethod() orElse betterBackupMethod()
   forConnectionStatus.foreach(println)
 ```
 
-### Handling failures
+## Handling failures
 - A Try is a wrapper for a computation that might fail or not
 - Use to handle exception gracefully
 ```

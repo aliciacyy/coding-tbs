@@ -2,13 +2,11 @@
 label: React (Basics)
 ---
 
-## Basics
-
-### Start a React project
+## Start a React project
 `npx create-react-app <project-name>`
 
 
-### Building a component
+## Building a component
 
 - Create `{componentName}`.js
 - Remember to add export default `{componentName}`
@@ -34,7 +32,7 @@ function Expenses(props) {
 export default Expenses;
 ```
 
-### Output dynamic data
+## Output dynamic data
 Use `{}` braces in JSX.
 
 ```Example
@@ -49,7 +47,7 @@ function ExpenseItem(props) {
 }
 ```
 
-### Passing data via props (parent to child)
+## Passing data via props (parent to child)
 First add the props to constructor, then get from props.
 ```
 function ExpenseItem(props) {
@@ -72,7 +70,7 @@ Then pass props from the parent component.
 
 ```
 
-### Event handling
+## Event handling
 ```
 <button onClick={clickHandler}>
 
@@ -81,7 +79,7 @@ const clickHandler = () => {
 }
 ```
 
-### States
+## States
 Use states to store data and trigger re-render
 ```
 import { useState } from 'react';
@@ -123,7 +121,7 @@ return (
 );
 ```
 
-### Passing data via props (parent to child)
+## Passing data via props (parent to child)
 - Child component to have a prop
 - Parent component listens to prop
 
@@ -145,7 +143,7 @@ const ExpenseForm = (props) => {
 // parent
 <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler}/>
 ```
-### Two way binding (stateful component)
+## Two way binding (stateful component)
 ```
 Also known as controlled component. The set and return value is in the parent component.
 
@@ -153,10 +151,10 @@ Also known as controlled component. The set and return value is in the parent co
 
 ```
 
-### Stateless component
+## Stateless component
 Has no state, just there to output some data.
 
-### Dyanmic output
+## Dyanmic output
 ```
 {props.expenses.map((p) => (
   <ExpenseItem title={p.title} 
@@ -164,7 +162,7 @@ Has no state, just there to output some data.
 ))}
 ```
 
-### Conditional Content
+## Conditional Content
 ```
 let expensesContent = <p>No expenses found</p> ;
 
@@ -190,7 +188,7 @@ return (
 );
 ```
 
-### Adding styles
+## Adding styles
 ```
 <input style={{
           borderColor: !isValid ? 'red' : 'black',
@@ -206,7 +204,7 @@ return (
 </div>
 ```
 
-### Set property name dynamically
+## Set property name dynamically
 ```
 const inputChangeHandler = (input, value) => {
   setUserInput((prevInput) => {
@@ -220,7 +218,7 @@ const inputChangeHandler = (input, value) => {
 <input onChange={(event) => inputChangeHandler('something', event.target.value)}>
 ```
 
-### Styled components
+## Styled components
 So that the CSS classes are unique to the components.
 
 `npm install --save styled-components`
@@ -243,7 +241,7 @@ const Button = styled.button`
 `;
 ```
 
-### Using CSS Modules
+## Using CSS Modules
 Need to name css files as `<name>.modules.css`
 
 ```
@@ -272,7 +270,7 @@ return (
   );
 ```
 
-### Use React.Fragment to avoid wrapping in div
+## Use React.Fragment to avoid wrapping in div
 ```
 <React.Fragment>
   <AddUser onAddUser={handleAddUser}></AddUser>
@@ -282,7 +280,7 @@ return (
 
 or use `<>` and `</>`
 
-### Use portals to render in different places
+## Use portals to render in different places
 Set an element with id
 `<div id="backdrop-root"></div>`
 
@@ -306,7 +304,7 @@ const ErrorModal = (props) => {
 
 ```
 
-### Using refs
+## Using refs
 ```
 import { useRef } from "react";
 
@@ -319,7 +317,7 @@ const nameInputRef = useRef();
 />
 ```
 
-### useEffect hook
+## useEffect hook
 Can be used for avoiding infinite state update loops, for side effects.
 ```
 import React, { useState, useEffect } from 'react';
@@ -360,7 +358,7 @@ useEffect(() => {
 });
 ```
 
-### useReducer()
+## useReducer()
 Can be used as replacement for useState() if you need "more powerful state management".
 
 `const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);`
@@ -371,7 +369,7 @@ Can be used as replacement for useState() if you need "more powerful state manag
 - initialState: the initial state
 - initFn: function to set the initial state program
 
-### Context API - Producer
+## Context API - Producer
 Add a producer:
 
 Create a file `store/auth-context.js`
@@ -400,7 +398,7 @@ return (
   );
 ```
 
-### Context API - Consumer
+## Context API - Consumer
 Method 1 - Use AuthContext.Consumer
 ```
 import AuthContext from '../../store/auth-context';
@@ -447,10 +445,10 @@ const Navigation = (props) => {
 };
 ```
 
-### Context limitations
+## Context limitations
 React Context is NOT optimised for high frequency changes!
 
-### Rules of Hooks
+## Rules of Hooks
 Only call React Hooks in React Functions
 - React Component Functions
 - Custom hooks
@@ -463,7 +461,7 @@ ALWAYS add everything you refer to inside of useEffect() as a dependency.
 
 ---
 
-### Forward Refs
+## Forward Refs
 For when you want to expose things from child component so a parent component can use
 ```
 // 1. useRef in parent
@@ -494,12 +492,12 @@ if (!emailIsValid) {
 }
 ```
 
-### Optimization with React.memo
+## Optimization with React.memo
 ```
 export default React.memo(Button);
 ```
 
-### useCallback
+## useCallback
 Use Callback is a hook that allows us to store a function across component executions. So it allows us to tell React that we wanna save a function and that this function should not be recreated with every execution.
 
 ```
@@ -509,7 +507,7 @@ const handler = () => useCallback(() => {
 ```
 This function has no dependecies and therfore will never change.
 
-### useMemo
+## useMemo
 useMemo basically allows you to memoize, so basically that means to store any kind of data which you want to store
 
 ```
@@ -518,6 +516,101 @@ const { items } = props;
 const list = useMemo(() => {
   return items.sort((a,b) => a- b);
 }, [items]);
+```
+
+## API calls
+```
+async function fetchMoviesHandler() {
+    const response = await fetch("https://swapi.dev/api/films/");
+    const data = await response.json();
+    const transformed = data.results.map((d) => {
+      return {
+        id: d.episode_id,
+        title: d.title,
+        openingText: d.opening_crawl,
+        releaseDate: d.release_date,
+      };
+    });
+    setMovies(transformed);
+  }
+```
+
+## Custom hooks
+The function name MUST start with `use`
+
+```
+import {useState, useEffect} from 'react';
+const useCounter = (forwards = true) => {
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+        if (forwards) {
+            setCounter((prevCounter) => prevCounter + 1);
+        } else {
+            setCounter((prevCounter) => prevCounter - 1);
+        }
+      
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [forwards]);
+
+  return counter;  // can return anything
+};
+export default useCounter;
+```
+
+```
+import useCounter from '...'
+
+const ForwardCounter () => {
+    const counter = useCounter(false);
+}
+```
+
+## Validation
+
+### On blur
+```
+const nameInputBlurHandler = (event) => {
+    setEnteredNameTouched(true);
+
+    // add validation below...
+}
+
+<input
+    onBlur={nameInputBlurHandler}
+>
+```
+
+## Custom input hooks example with form
+Create `use-input.js` file under `src>hooks`
+```
+import { useState } from 'react';
+
+const useInput = (validateValue) => {
+    const [enteredValue, setEnteredValue] = useState('');
+    const [isTouched, setIsTouched] = useState(false);
+
+    const valueIsValid = validateValue(enteredValue);
+    const hasError = !valueIsValid && isTouched;
+
+    const valueChangeHandler = (event) => {
+        setEnteredValue(event.target.value);
+    }
+
+    const inputBlurHandler = (event) => {
+        setIsTouched(true);
+    }
+
+    return {
+        value: enteredValue, hasError, valueChangeHandler, inputBlurHandler
+    };
+}
+```
+```
+const { value: enteredName, hasError: nameError, valueChangeHandler: nameChangeHander, inputBlurHandler: nameBlur, } = useInput(value => value.trim() !== '');
 ```
 
 **Reference:** https://www.udemy.com/course/react-the-complete-guide-incl-redux/

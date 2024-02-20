@@ -79,3 +79,20 @@ const Counter = () => {
 	}
 }
 ```
+
+## Attach payload to actions
+```
+const incrementHandler = () => {
+	dispatch({ type: 'increment', value: 10 });
+}
+
+const counterReducer = (state = { counter: 0 }, action) => {
+	if (action.type === 'increment') {
+		return {
+			counter: state.counter + state.value
+		};
+	}
+  return state;
+}
+
+```

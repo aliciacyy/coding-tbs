@@ -2,6 +2,12 @@
 label: Git
 ---
 
+### Github cheatsheet
+- https://training.github.com/downloads/github-git-cheat-sheet/
+- https://docs.github.com/en/get-started/quickstart/github-flow
+- https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/
+- https://dev.to/chrissiemhrk/git-commit-message-5e21
+
 ### Switch Git credentials
 !!!
 For Windows users only
