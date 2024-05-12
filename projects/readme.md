@@ -1,7 +1,7 @@
 ---
 label: Projects
 icon: code-square
-order: 2
+order: 1
 ---
 
 This section covers some of my personal coding projects, the main tools used and how to install and deploy them.

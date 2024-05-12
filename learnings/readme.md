@@ -1,7 +1,7 @@
 ---
 label: Learnings
 icon: mortar-board
-order: 1
+order: 2
 ---
 Documenting new stuff that I learnt.
 

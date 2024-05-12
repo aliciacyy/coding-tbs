@@ -1,7 +1,7 @@
 ---
 label: Cheatsheet
 icon: repo
-order: 3
+order: 4
 ---
 Quick reference on frequently used commands and how-tos.
 

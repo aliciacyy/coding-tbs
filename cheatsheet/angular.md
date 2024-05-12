@@ -2,6 +2,11 @@
 label: Angular
 ---
 
+### Create a project with a specific Angular version
+```
+npx -p @angular/cli@16.2.14 ng new {projectName}
+```
+
 ### ngTemplate, ngTemplateOutlet and ngTemplateOutletContext
 
 ```Example
