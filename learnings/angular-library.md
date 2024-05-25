@@ -14,6 +14,16 @@ or
 ### Create library
 `ng generate library <library-name>`
 
+### Adding scope
+Go to project's package.json and edit the name:
+```
+{
+  "name": "@my-company/my-buttons",
+  "version": "0.0.1",
+  ...
+}
+```
+
 ### Create components
 Do `cd` to the library directory first (e.g projects/<library-name>/src/lib/)
 
@@ -38,9 +48,79 @@ Can also add to package.json - `"pack-lib": "cd dist/<library-name> && npm pack"
 - Run `npm i <library-name>-1.2.3.tgz`
 - Add the module in `AppModule`
 
+### Using npm-link
+
+Use this to save the trouble of having to run build and copying the file over every time.
+
+- `cd` to `dist/<library-name>/` and run `npm link`
+- In your app, add the dependency in package.json
+- Then run `npm link <library-name>`
+
+### Removing link
+```
+npm unlink <library-name> --no-save
+npm rm -g <library-name>
+```
+
+
+### Installing dependencies on library
+In the root `package.json`, add this:
+```
+"workspaces": [
+  "projects/*"
+]
+```
+
+This ensures that `npm install` is only executed at the root level.
+
+When dependencies are installed, add them to `peerDependecies` manually.
+
+Example:
+
+In root package.json:
+```
+"primeng": "^16.4.4",
+```
+
+In library package.json:
+```
+"peerDependencies": {
+  "@angular/common": "^16.2.0",
+  "@angular/core": "^16.2.0",
+  "primeng": "^16.4.4"
+},
+```
+
+
+### Adding Storybook
+
+`npx sb init` on root level.
+
+Remember to do the above, or else Storybook will have this error: `Cannot read property 'selector' of undefined.` if there is `node_modules` folder in the `projects/<lib-name>` level.
+
+### Adding third party CSS in Storybook
+
+In the root `angular.json`, add styles here:
+```
+"storybook": {
+  "builder": "@storybook/angular:start-storybook",
+  "options": {
+  "styles": [
+    "node_modules/primeng/resources/primeng.min.css",
+    "node_modules/primeng/resources/themes/lara-light-blue/theme.css"
+  ],
+  "configDir": "projects/piggy-ui/.storybook",
+  "browserTarget": "piggy-ui:build",
+  "compodoc": true,
+  "compodocArgs": ["-e", "json", "-d", "projects/piggy-ui"],
+  "port": 6006
+  }
+},
+```
 
 ### References
 - https://www.telerik.com/blogs/angular-component-library-part-1-how-to-build
 - https://medium.com/angular-in-depth/step-by-step-guide-to-creating-your-first-library-in-angular-6827276bfc9f
 - https://medium.com/@aleksanderkolata/how-to-develop-angular-libraries-locally-ed8e1fd16892
 - https://plainenglish.io/blog/create-your-own-angular-component-library-e5f062b902a8
+- https://github.com/storybookjs/storybook/issues/14828
