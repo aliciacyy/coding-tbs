@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/coding-tbs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.768827963394">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.769931151449">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,11 +32,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.768827963394" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.769931151449" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.768827963394" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.769931151449" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.768827963394" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.769931151449" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -202,6 +202,20 @@
     </h3>
 </doc-anchor-target>
 <p><code v-pre>ng generate library &lt;library-name&gt;</code></p>
+<doc-anchor-target id="adding-scope">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#adding-scope">#</doc-anchor-trigger>
+        <span>Adding scope</span>
+    </h3>
+</doc-anchor-target>
+<p>Go to project&#x27;s package.json and edit the name:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">{
+  &quot;name&quot;: &quot;@my-company/my-buttons&quot;,
+  &quot;version&quot;: &quot;0.0.1&quot;,
+  ...
+}</code></pre>
+</doc-codeblock></div>
 <doc-anchor-target id="create-components">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#create-components">#</doc-anchor-trigger>
@@ -239,6 +253,86 @@
 <li>Run <code v-pre>npm i &lt;library-name&gt;-1.2.3.tgz</code></li>
 <li>Add the module in <code v-pre>AppModule</code></li>
 </ul>
+<doc-anchor-target id="using-npm-link">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-npm-link">#</doc-anchor-trigger>
+        <span>Using npm-link</span>
+    </h3>
+</doc-anchor-target>
+<p>Use this to save the trouble of having to run build and copying the file over every time.</p>
+<ul>
+<li><code v-pre>cd</code> to <code v-pre>dist/&lt;library-name&gt;/</code> and run <code v-pre>npm link</code></li>
+<li>In your app, add the dependency in package.json</li>
+<li>Then run <code v-pre>npm link &lt;library-name&gt;</code></li>
+</ul>
+<doc-anchor-target id="removing-link">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#removing-link">#</doc-anchor-trigger>
+        <span>Removing link</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">npm unlink &lt;library-name&gt; --no-save
+npm rm -g &lt;library-name&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="installing-dependencies-on-library">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#installing-dependencies-on-library">#</doc-anchor-trigger>
+        <span>Installing dependencies on library</span>
+    </h3>
+</doc-anchor-target>
+<p>In the root <code v-pre>package.json</code>, add this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&quot;workspaces&quot;: [
+  &quot;projects/*&quot;
+]</code></pre>
+</doc-codeblock></div>
+<p>This ensures that <code v-pre>npm install</code> is only executed at the root level.</p>
+<p>When dependencies are installed, add them to <code v-pre>peerDependecies</code> manually.</p>
+<p>Example:</p>
+<p>In root package.json:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&quot;primeng&quot;: &quot;^16.4.4&quot;,</code></pre>
+</doc-codeblock></div>
+<p>In library package.json:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&quot;peerDependencies&quot;: {
+  &quot;@angular/common&quot;: &quot;^16.2.0&quot;,
+  &quot;@angular/core&quot;: &quot;^16.2.0&quot;,
+  &quot;primeng&quot;: &quot;^16.4.4&quot;
+},</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="adding-storybook">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#adding-storybook">#</doc-anchor-trigger>
+        <span>Adding Storybook</span>
+    </h3>
+</doc-anchor-target>
+<p><code v-pre>npx sb init</code> on root level.</p>
+<p>Remember to do the above, or else Storybook will have this error: <code v-pre>Cannot read property 'selector' of undefined.</code> if there is <code v-pre>node_modules</code> folder in the <code v-pre>projects/&lt;lib-name&gt;</code> level.</p>
+<doc-anchor-target id="adding-third-party-css-in-storybook">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#adding-third-party-css-in-storybook">#</doc-anchor-trigger>
+        <span>Adding third party CSS in Storybook</span>
+    </h3>
+</doc-anchor-target>
+<p>In the root <code v-pre>angular.json</code>, add styles here:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&quot;storybook&quot;: {
+  &quot;builder&quot;: &quot;@storybook/angular:start-storybook&quot;,
+  &quot;options&quot;: {
+  &quot;styles&quot;: [
+    &quot;node_modules/primeng/resources/primeng.min.css&quot;,
+    &quot;node_modules/primeng/resources/themes/lara-light-blue/theme.css&quot;
+  ],
+  &quot;configDir&quot;: &quot;projects/piggy-ui/.storybook&quot;,
+  &quot;browserTarget&quot;: &quot;piggy-ui:build&quot;,
+  &quot;compodoc&quot;: true,
+  &quot;compodocArgs&quot;: [&quot;-e&quot;, &quot;json&quot;, &quot;-d&quot;, &quot;projects/piggy-ui&quot;],
+  &quot;port&quot;: 6006
+  }
+},</code></pre>
+</doc-codeblock></div>
 <doc-anchor-target id="references">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#references">#</doc-anchor-trigger>
@@ -250,6 +344,7 @@
 <li><a href="https://medium.com/angular-in-depth/step-by-step-guide-to-creating-your-first-library-in-angular-6827276bfc9f">https://medium.com/angular-in-depth/step-by-step-guide-to-creating-your-first-library-in-angular-6827276bfc9f</a></li>
 <li><a href="https://medium.com/@aleksanderkolata/how-to-develop-angular-libraries-locally-ed8e1fd16892">https://medium.com/@aleksanderkolata/how-to-develop-angular-libraries-locally-ed8e1fd16892</a></li>
 <li><a href="https://plainenglish.io/blog/create-your-own-angular-component-library-e5f062b902a8">https://plainenglish.io/blog/create-your-own-angular-component-library-e5f062b902a8</a></li>
+<li><a href="https://github.com/storybookjs/storybook/issues/14828">https://github.com/storybookjs/storybook/issues/14828</a></li>
 </ul>
 
                                 
