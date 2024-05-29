@@ -62,7 +62,6 @@ npm unlink <library-name> --no-save
 npm rm -g <library-name>
 ```
 
-
 ### Installing dependencies on library
 In the root `package.json`, add this:
 ```
@@ -116,6 +115,31 @@ In the root `angular.json`, add styles here:
   "port": 6006
   }
 },
+```
+
+### Creating own theme in PrimeNg and exporting
+
+1. Download zip file from [here](https://github.com/primefaces/primeng-sass-theme/releases)
+2. Copy the `theme-base` and `theme/mytheme` folders
+3. Update the import in `theme/mytheme/theme.scss` for this line: `@import '../theme-base/_components';`
+4. Run `sass --update themes/pig-ui/theme.scss:projects/piggy-ui/src/themes/pigui.min.css --style compressed`
+5. Add this in `ng-package.json`:
+```
+"assets": [
+  { "input": "src/themes", "glob": "**/*.css", "output": "themes" }
+]
+```
+
+Now the css file will be in the library package.
+
+Add this to the app using the library in `angular.json`
+
+```
+"styles": [
+  "src/styles.scss",
+  "node_modules/piggy-ui/themes/pigui.min.css",
+  "node_modules/primeng/resources/primeng.min.css"
+],
 ```
 
 ### References
