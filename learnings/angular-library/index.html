@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/coding-tbs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.769931151449">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.770308803819">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,11 +32,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.769931151449" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.770308803819" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.769931151449" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.770308803819" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.769931151449" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.770308803819" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -332,6 +332,33 @@ npm rm -g &lt;library-name&gt;</code></pre>
   &quot;port&quot;: 6006
   }
 },</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="creating-own-theme-in-primeng-and-exporting">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#creating-own-theme-in-primeng-and-exporting">#</doc-anchor-trigger>
+        <span>Creating own theme in PrimeNg and exporting</span>
+    </h3>
+</doc-anchor-target>
+<ol>
+<li>Download zip file from <a href="https://github.com/primefaces/primeng-sass-theme/releases">here</a></li>
+<li>Copy the <code v-pre>theme-base</code> and <code v-pre>theme/mytheme</code> folders</li>
+<li>Update the import in <code v-pre>theme/mytheme/theme.scss</code> for this line: <code v-pre>@import '../theme-base/_components';</code></li>
+<li>Run <code v-pre>sass --update themes/pig-ui/theme.scss:projects/piggy-ui/src/themes/pigui.min.css --style compressed</code></li>
+<li>Add this in <code v-pre>ng-package.json</code>:</li>
+</ol>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&quot;assets&quot;: [
+  { &quot;input&quot;: &quot;src/themes&quot;, &quot;glob&quot;: &quot;**/*.css&quot;, &quot;output&quot;: &quot;themes&quot; }
+]</code></pre>
+</doc-codeblock></div>
+<p>Now the css file will be in the library package.</p>
+<p>Add this to the app using the library in <code v-pre>angular.json</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&quot;styles&quot;: [
+  &quot;src/styles.scss&quot;,
+  &quot;node_modules/piggy-ui/themes/pigui.min.css&quot;,
+  &quot;node_modules/primeng/resources/primeng.min.css&quot;
+],</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="references">
     <h3>
