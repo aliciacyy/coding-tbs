@@ -24,6 +24,11 @@ Commit must not be pushed yet.
 git commit --amend --no-edit
 ```
 
+### Reset back to branch
+```
+git reset --hard origin/main
+```
+
 ### Rename local branch
 ```
 git branch -m <newname>

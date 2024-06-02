@@ -11,5 +11,6 @@ Quick reference on frequently used commands and how-tos.
 - [Firebase Hosting](../cheatsheet/firebase-hosting.md)
 - [Git](../cheatsheet/git.md)
 - [Javascript](../cheatsheet/javascript.md)
+- [npm](../cheatsheet/npm.md)
 - [React](../cheatsheet/react.md)
 - [Scala](../cheatsheet/scala.md)

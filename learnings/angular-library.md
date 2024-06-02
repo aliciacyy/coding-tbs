@@ -142,6 +142,49 @@ Add this to the app using the library in `angular.json`
 ],
 ```
 
+### Adding Tailwind to library
+
+1. Install tailwind at root
+```
+npm install -D tailwindcss
+npx tailwindcss init
+```
+2. Update `tailwind.config.js`
+```
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./projects/libilb/src/**/*.{html,ts}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+3. Create `input.css`
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+4. Run command
+```
+npx tailwindcss -i ./css/input.css -o ./css/output.css --watch
+```
+5. Add to angular.json
+```
+"styles": [
+  "node_modules/primeng/resources/primeng.min.css",
+  "projects/libilb/src/themes/libilb.min.css",
+  "css/output.css"
+],
+```
+Old instructions, might not be needed?
+
+6. Install storybook dependency in library directory
+```
+npx storybook@latest add @storybook/addon-styling-webpack
+```
+
 ### References
 - https://www.telerik.com/blogs/angular-component-library-part-1-how-to-build
 - https://medium.com/angular-in-depth/step-by-step-guide-to-creating-your-first-library-in-angular-6827276bfc9f
