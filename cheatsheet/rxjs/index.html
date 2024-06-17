@@ -10,24 +10,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Scala</title>
-    <meta name="title" content="Scala">
-    <meta name="description" content="We can test whether an Option is Some or None using these following methods:">
+    <title>rxjs</title>
+    <meta name="title" content="rxjs">
+    <meta name="description" content="A producer of multiple values, \"pushing\" them to observers (consumers).">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://aliciacyy.github.io/coding-tbs/cheatsheet/scala/">
+    <link rel="canonical" href="https://aliciacyy.github.io/coding-tbs/cheatsheet/rxjs/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/scala/">
-    <meta property="og:title" content="Scala">
-    <meta property="og:description" content="We can test whether an Option is Some or None using these following methods:">
+    <meta property="og:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/rxjs/">
+    <meta property="og:title" content="rxjs">
+    <meta property="og:description" content="A producer of multiple values, \"pushing\" them to observers (consumers).">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/scala/">
-    <meta property="twitter:title" content="Scala">
-    <meta property="twitter:description" content="We can test whether an Option is Some or None using these following methods:">
+    <meta property="twitter:url" content="https://aliciacyy.github.io/coding-tbs/cheatsheet/rxjs/">
+    <meta property="twitter:title" content="rxjs">
+    <meta property="twitter:description" content="A producer of multiple values, \"pushing\" them to observers (consumers).">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -179,191 +179,426 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="scala" class="break-words">
+<doc-anchor-target id="rxjs" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#scala">#</doc-anchor-trigger>
-        <span>Scala</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#rxjs">#</doc-anchor-trigger>
+        <span>rxjs</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="option">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#option">#</doc-anchor-trigger>
-        <span>Option</span>
-    </h3>
+<doc-anchor-target id="observable">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#observable">#</doc-anchor-trigger>
+        <span>Observable</span>
+    </h2>
 </doc-anchor-target>
-<p>We can test whether an Option is Some or None using these following methods:</p>
-<ul>
-<li>isDefined – true if the object is Some</li>
-<li>nonEmpty – true if the object is Some</li>
-<li>isEmpty – true if the object is None</li>
-</ul>
-<p>We can retrieve the Option‘s value via the get method. If we invoke the get method on an instance of None, then a NoSuchElementException will be thrown.</p>
-<p>We also have a couple of other retrieval methods:</p>
-<ul>
-<li>getOrElse – Retrieve the value if the object is Some, otherwise return a default value</li>
-<li>orElse – Retrieve the Option if it is Some, otherwise return an alternate Option</li>
-</ul>
+<p>A producer of multiple values, &quot;pushing&quot; them to observers (consumers). An observable represents a stream, or source of data that can arrive over time.</p>
+<p>Not often used, just for example:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Example</div>
-<pre class="language-none"><code v-pre class="language-none">val o1: Option[Int] = Some(10)
-assert(o1.map(_.toString).contains(&quot;10&quot;))
-assert(o1.map(_ * 2.0).contains(20))
-
-val o2: Option[Int] = None
-assert(o2.map(_.toString).isEmpty)</code></pre>
+<pre class="language-none"><code v-pre class="language-none">const observable = new Observable((subscriber) =&gt; {
+  subscriber.next(10); // emits data
+  subscriber.complete(10); // indicate complete
+});</code></pre>
 </doc-codeblock></div>
-<p>We can also do collection-style filtering on Options:</p>
-<ul>
-<li>filter – Returns the Option if the Option‘s value is Some and the supplied function returns true</li>
-<li>filterNot – Returns the Option if the Option‘s value is Some and the supplied function returns false</li>
-<li>exists – Returns true if the Option is set and the supplied function returns true</li>
-<li>forall – Same behavior as exists since Options have a maximum of one value</li>
-</ul>
-<doc-anchor-target id="either">
+<doc-anchor-target id="observer">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#observer">#</doc-anchor-trigger>
+        <span>Observer</span>
+    </h2>
+</doc-anchor-target>
+<p>A consumer of vaulues delivered by an observable.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const observer = {
+  next: (value) =&gt; { console.log(value); }, // get next value
+  error: (error) =&gt; { console.log(error) }, // catch error
+  complete: () =&gt; { console.log('completed'); }// completed
+}
+
+observable.subscribe(observer);</code></pre>
+</doc-codeblock></div>
+<p>Any time there is error or complete, any other emissions after will be ignored!</p>
+<doc-anchor-target id="subject-and-behavioursubject">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#subject-and-behavioursubject">#</doc-anchor-trigger>
+        <span>Subject and BehaviourSubject</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="subject">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#either">#</doc-anchor-trigger>
-        <span>Either</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#subject">#</doc-anchor-trigger>
+        <span>Subject</span>
     </h3>
 </doc-anchor-target>
-<p><code v-pre> Either[String, Int]</code></p>
-<p>Functions exactly similar to an Option. The only dissimilarity is that with Either it is practicable to return a string which can explicate the instructions about the error that appeared.</p>
-<p>Right is similar to the Some class and Left is same as None class.</p>
-<p>Left is utilized for the failure where, we can return the error occurred inside the child Left of the Either and Right is utilized for Success.</p>
-<p>Either is right-biased, which means that Right is assumed to be the default case to operate on. If it is Left, operations like map and flatMap return the Left value unchanged.</p>
+<p>A special type of observable that allows values to be multicasted to many observers.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Example 1</div>
-<pre class="language-none"><code v-pre class="language-none">import scala.io.StdIn._
-val in = readLine(&quot;Type Either a string or an Int: &quot;)
-val result: Either[String,Int] =
-  try Right(in.toInt)
-  catch {
-    case e: NumberFormatException =&gt; Left(in)
-  }
+<pre class="language-none"><code v-pre class="language-none">const sub = new Subject();
+sub.next(1);
+sub.subscribe(x =&gt; {
+  console.log('Subscriber A', x);
+});</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="behavioursubject">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#behavioursubject">#</doc-anchor-trigger>
+        <span>BehaviourSubject</span>
+    </h3>
+</doc-anchor-target>
+<p>Stores the current value. Able to have an initial value.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const subject = new BehaviorSubject(123);
+subject.subscribe(console.log);
+subject.next(456);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="when-to-use-subject-and-behavioursubject">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#when-to-use-subject-and-behavioursubject">#</doc-anchor-trigger>
+        <span>When to use Subject and BehaviourSubject</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Use Subject when you have multiple observers and you want updates as they come.</li>
+<li>Use BehaviourSubject when you have multiple observers and you want the latest updates as soon as they subscribe.</li>
+</ul>
+<doc-anchor-target id="pipe-and-operator">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#pipe-and-operator">#</doc-anchor-trigger>
+        <span>Pipe and operator</span>
+    </h2>
+</doc-anchor-target>
+<p>Values will now go through pipe first before reaching observer, which contains operators.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const observable = new Observable((subscriber) =&gt; {
+  subscriber.next(data); // emits data
+}).pipe(
+  map((value) =&gt; {
+    return value.data;
+  }),
+  map((value) =&gt; {
+    return value.filter((v) =&gt; v.status === 'active');
+  }),
+  map((value) =&gt; {
+    return value.reduce((sum, user) =&gt; sum + user.age, 0);  // reduce array into something
+  }),
+  map((value) =&gt; {
+    if (value &lt; 18) throw new Error('error'); // to test error
+    else return value;
+  }),
+);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="convert-promise-to-observable">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#convert-promise-to-observable">#</doc-anchor-trigger>
+        <span>Convert promise to observable</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const promise = new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; {
+    resolve('resolved');
+  }, 1000);
+})
 
-result match {
-  case Right(x) =&gt; s&quot;You passed me the Int: $x, which I will increment. $x + 1 = ${x+1}&quot;
-  case Left(x)  =&gt; s&quot;You passed me the String: $x&quot;
+const obvsPromise = fromPromise(promise);</code></pre>
+</doc-codeblock></div>
+<p>Can also convert observable back to promise by calling to promise on it.</p>
+<doc-anchor-target id="operators">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#operators">#</doc-anchor-trigger>
+        <span>Operators</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="creation">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#creation">#</doc-anchor-trigger>
+        <span>Creation</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="timer">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#timer">#</doc-anchor-trigger>
+        <span>timer</span>
+    </h4>
+</doc-anchor-target>
+<p>After given duration, emit numbers in sequence every specified duration.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">//emit 0 after 1 second then complete, since no second argument is supplied
+const source = timer(1000);
+//output: 0
+const subscribe = source.subscribe(val =&gt; console.log(val));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="interval">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#interval">#</doc-anchor-trigger>
+        <span>interval</span>
+    </h4>
+</doc-anchor-target>
+<p>Emit numbers in sequence based on provided timeframe.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">//emit value in sequence every 1 second
+const source = interval(1000);
+//output: 0,1,2,3,4,5....
+const subscribe = source.subscribe(val =&gt; console.log(val));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="of">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#of">#</doc-anchor-trigger>
+        <span>of</span>
+    </h4>
+</doc-anchor-target>
+<p>Emit variable amount of values in a sequence and then emits a complete notification.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">//emits values of any type
+const source = of({ name: 'Brian' }, [1, 2, 3], function hello() {
+  return 'Hello';
+});
+//output: {name: 'Brian'}, [1,2,3], function hello() { return 'Hello' }
+const subscribe = source.subscribe(val =&gt; console.log(val));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="from">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#from">#</doc-anchor-trigger>
+        <span>from</span>
+    </h4>
+</doc-anchor-target>
+<p>Turn an array, promise, or iterable into an observable.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const arraySource = from([1, 2, 3, 4, 5]);
+const subscribe = arraySource.subscribe(val =&gt; console.log(val));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="transformation">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#transformation">#</doc-anchor-trigger>
+        <span>Transformation</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="map">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#map">#</doc-anchor-trigger>
+        <span>map</span>
+    </h4>
+</doc-anchor-target>
+<p>Apply projection with each value from source.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">//emit (1,2,3,4,5)
+const source = from([1, 2, 3, 4, 5]);
+//add 10 to each value
+const example = source.pipe(map(val =&gt; val + 10));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="switchmap">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#switchmap">#</doc-anchor-trigger>
+        <span>switchMap</span>
+    </h4>
+</doc-anchor-target>
+<p>Map to observable, complete previous inner observable, emit values.
+On each emission the previous inner observable (the result of the function you supplied) is cancelled and the new observable is subscribed.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">fromEvent(document, 'click')
+  .pipe(
+    // restart counter on every click
+    switchMap(() =&gt; interval(1000))
+  )
+  .subscribe(console.log);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="filtering">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#filtering">#</doc-anchor-trigger>
+        <span>Filtering</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="filter">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#filter">#</doc-anchor-trigger>
+        <span>filter</span>
+    </h4>
+</doc-anchor-target>
+<p>Emit values that pass the provided condition.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const example = source.pipe(filter(num =&gt; num % 2 === 0));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="debouncetime">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#debouncetime">#</doc-anchor-trigger>
+        <span>debounceTime</span>
+    </h4>
+</doc-anchor-target>
+<p>Discard emitted values that take less than the specified time between output</p>
+<p><span class="docs-emoji">&#x1F4A1;</span> This operator is popular in scenarios such as type-ahead where the rate of user input must be controlled!</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">this.myFormControl.valueChanges.pipe(
+  debounceTime(300)
+).subscribe(value =&gt; {
+  // handle the value after 300ms of inactivity
+});</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="trottletime">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#trottletime">#</doc-anchor-trigger>
+        <span>trottleTime</span>
+    </h4>
+</doc-anchor-target>
+<p>Emit first value then ignore for specified duration</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">/*
+  emit the first value, then ignore for 5 seconds. repeat...
+*/
+const example = source.pipe(throttleTime(5000));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="scan">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#scan">#</doc-anchor-trigger>
+        <span>scan</span>
+    </h4>
+</doc-anchor-target>
+<p>Reduce over time.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const source = of(1, 2, 3);
+// basic scan example, sum over time starting with zero
+const example = source.pipe(scan((acc, curr) =&gt; acc + curr, 0));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="takeuntil">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#takeuntil">#</doc-anchor-trigger>
+        <span>takeUntil</span>
+    </h4>
+</doc-anchor-target>
+<p>Emit values until provided observable emits.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">private destroy$ = new Subject&lt;void&gt;();
+
+observable$
+  .pipe(takeUntil(this.destroy$))
+  .subscribe(data =&gt; console.log(data));
+
+ngOnDestroy() {
+  this.destroy$.next();
+  this.destroy$.complete();
 }</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="takewhile">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#takewhile">#</doc-anchor-trigger>
+        <span>takeWhile</span>
+    </h4>
+</doc-anchor-target>
+<p>Emit values until provided expression is false.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Example 2</div>
-<pre class="language-none"><code v-pre class="language-none">def Name(name: String): Either[String, String] =
-    {
-      
-        if (name.isEmpty) 
-            // Left child for failure
-            Left(&quot;There is no name.&quot;)
-  
-        else
-            // Right child for success
-            Right(name)
-    }</code></pre>
+<pre class="language-none"><code v-pre class="language-none">//allow values until value from source is greater than 4, then complete
+source$
+  .pipe(takeWhile(val =&gt; val &lt;= 4))
+  // log: 1,2,3,4
+  .subscribe(val =&gt; console.log(val));</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="fold">
+<doc-anchor-target id="firstlast">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#firstlast">#</doc-anchor-trigger>
+        <span>first/last</span>
+    </h4>
+</doc-anchor-target>
+<p>Emit the first/last value or first/last to pass provided expression.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const example = source.pipe(first());
+const example = source.pipe(last());</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="combination">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#fold">#</doc-anchor-trigger>
-        <span>Fold</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#combination">#</doc-anchor-trigger>
+        <span>Combination</span>
     </h3>
 </doc-anchor-target>
-<p>Folding involves the use of a higher-order function to analyze a recursive data structure and, by applying a given combining operation, recombine the results of processing its subparts, building up a return value:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Example</div>
-<pre class="language-none"><code v-pre class="language-none">val list = List(1, 2, 3, 4, 5)
-val sum = list.fold(0)((x, y) =&gt; x + y)
-assert(sum == 15)</code></pre>
-</doc-codeblock></div>
-<p>The fold method takes two sets of arguments. One contains a start value and the other a combining function. It then steps through the list, recursively applying the function to two operands: an accumulated value and the next element in the list.</p>
-<doc-anchor-target id="foldleft">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#foldleft">#</doc-anchor-trigger>
-        <span>foldLeft</span>
-    </h3>
+<doc-anchor-target id="zip">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#zip">#</doc-anchor-trigger>
+        <span>zip</span>
+    </h4>
 </doc-anchor-target>
-<p>foldLeft iterates through the list from left to right, accumulating elements in that order. This also means that when processing the two operands to the combining function, the accumulator is the argument on the left:</p>
+<p>After all observables emit, emit values as an array. This operator is ideal when you want to combine values from multiple observables in a pairwise fashion.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Example</div>
-<pre class="language-none"><code v-pre class="language-none">val foldedList = persons.foldLeft(List[String]()) { (accumulator, person) =&gt;
-  val title = person.sex match {
-    case &quot;male&quot; =&gt; &quot;Mr.&quot;
-    case &quot;female&quot; =&gt; &quot;Ms.&quot;
+<pre class="language-none"><code v-pre class="language-none">//emit every 1s
+const source = interval(1000);
+//when one observable completes no more values will be emitted
+const example = zip(source, source.pipe(take(2)));
+//output: [0,0]...[1,1]
+const subscribe = example.subscribe(val =&gt; console.log(val));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="forkjoin">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#forkjoin">#</doc-anchor-trigger>
+        <span>forkJoin</span>
+    </h4>
+</doc-anchor-target>
+<p>When all observables complete, emit the last emitted value from each.</p>
+<p>This operator is best used when you have a group of observables and only care about the final emitted value of each.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">forkJoin(
+  // as of RxJS 6.5+ we can use a dictionary of sources
+  {
+    google: ajax.getJSON('https://api.github.com/users/google'),
+    microsoft: ajax.getJSON('https://api.github.com/users/microsoft'),
+    users: ajax.getJSON('https://api.github.com/users')
   }
-  accumulator :+ s&quot;$title ${person.name}&quot;
-}
-assert(foldedList == List(&quot;Mr. Thomas&quot;, &quot;Mr. Sowell&quot;, &quot;Ms. Liz&quot;))</code></pre>
+)
+  // { google: object, microsoft: object, users: array }
+  .subscribe(console.log);</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="foldright">
+<doc-anchor-target id="error-handling">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#foldright">#</doc-anchor-trigger>
-        <span>foldRight</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#error-handling">#</doc-anchor-trigger>
+        <span>Error handling</span>
     </h3>
 </doc-anchor-target>
-<p>foldRight iterates through the list from right to left, accumulating elements in that order.</p>
+<doc-anchor-target id="catchcatcherror">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#catchcatcherror">#</doc-anchor-trigger>
+        <span>catch/catchError</span>
+    </h4>
+</doc-anchor-target>
+<p>Gracefully handle errors in an observable sequence.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Example</div>
-<pre class="language-none"><code v-pre class="language-none">val foldedList = persons.foldRight(List[String]()) { (person, accumulator) =&gt;
-  val title = person.sex match {
-    case &quot;male&quot; =&gt; &quot;Mr.&quot;
-    case &quot;female&quot; =&gt; &quot;Ms.&quot;
-  }
-  accumulator :+ s&quot;$title ${person.name}&quot;
-}
-assert(foldedList == List(&quot;Ms. Liz&quot;, &quot;Mr. Sowell&quot;, &quot;Mr. Thomas&quot;))</code></pre>
+<pre class="language-none"><code v-pre class="language-none">const source = throwError('This is an error!');
+const example = source.pipe(catchError(val =&gt; of(`I caught: ${val}`)));</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="apply">
+<doc-anchor-target id="retry">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#retry">#</doc-anchor-trigger>
+        <span>retry</span>
+    </h4>
+</doc-anchor-target>
+<p>Retry an observable sequence a specific number of times should an error occur.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const example = source.pipe(
+  mergeMap(val =&gt; {
+    //throw error for demonstration
+    if (val &gt; 5) {
+      return throwError('Error!');
+    }
+    return of(val);
+  }),
+  //retry 2 times on error
+  retry(2)
+);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="utility">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#apply">#</doc-anchor-trigger>
-        <span>Apply</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#utility">#</doc-anchor-trigger>
+        <span>Utility</span>
     </h3>
 </doc-anchor-target>
-<p>The apply method is like a constructor which takes arguments and creates an object</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">object CustomerID {
-  def apply(name: String) = s&quot;$name--${Random.nextLong()}&quot;
-}
-val customer1ID = CustomerID(&quot;Sukyoung&quot;)</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="unapply">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#unapply">#</doc-anchor-trigger>
-        <span>Unapply</span>
-    </h3>
+<doc-anchor-target id="dotap">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#dotap">#</doc-anchor-trigger>
+        <span>do/tap</span>
+    </h4>
 </doc-anchor-target>
-<p>Unapply takes an object and tries to give back the arguments. This is most often used in pattern matching and partial functions.</p>
+<p>Transparently perform actions or side-effects, such as logging.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">object CustomerID {
-  def unapply(customerID: String): Option[String] = {
-    val stringArray: Array[String] = customerID.split(&quot;--&quot;)
-    if (stringArray.tail.nonEmpty) Some(stringArray.head) else None
-  }
-}
-
-customer1ID match {
-  case CustomerID(name) =&gt; println(name)  // prints Sukyoung
-  case _ =&gt; println(&quot;Could not extract a CustomerID&quot;)
-}</code></pre>
+<pre class="language-none"><code v-pre class="language-none">const source = of(1, 2, 3, 4, 5);
+// transparently log values from source with 'tap'
+const example = source.pipe(
+  tap(val =&gt; console.log(`BEFORE MAP: ${val}`)),
+  map(val =&gt; val + 10),
+  tap(val =&gt; console.log(`AFTER MAP: ${val}`))
+);</code></pre>
 </doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val customer2ID = CustomerID(&quot;Nico&quot;)
-val CustomerID(name) = customer2ID
-println(name)  // prints Nico
-</code></pre>
-</doc-codeblock></div>
-<p>This is equivalent to <code v-pre>val name = CustomerID.unapply(customer2ID).get.</code></p>
-<p>If there is no match, a scala.MatchError is thrown.</p>
-<p>The return type of an unapply should be chosen as follows:</p>
-<ul>
-<li>If it is just a test, return a Boolean. For instance case even().</li>
-<li>If it returns a single sub-value of type T, return an Option[T].</li>
-<li>If you want to return several sub-values T1,...,Tn, group them in an optional tuple Option[(T1,...,Tn)].</li>
-</ul>
-<hr>
-<p><strong>Sources:</strong></p>
-<ul>
-<li><a href="https://www.baeldung.com/scala/">https://www.baeldung.com/scala/</a></li>
-<li><a href="https://www.geeksforgeeks.org/scala-either/">https://www.geeksforgeeks.org/scala-either/</a></li>
-<li><a href="https://www.scala-lang.org/api/2.13.6/scala/util/Either.html">https://www.scala-lang.org/api/2.13.6/scala/util/Either.html</a></li>
-<li><a href="https://docs.scala-lang.org/tour/extractor-objects.html">https://docs.scala-lang.org/tour/extractor-objects.html</a></li>
-</ul>
 
                                 
                                 <!-- Required only on API pages -->
@@ -373,20 +608,20 @@ println(name)  // prints Nico
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../cheatsheet/rxjs/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../cheatsheet/react/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">rxjs</span>
+                                                <span class="block mt-1">React</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../debugging/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../cheatsheet/scala/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Debugging</span>
+                                                <span class="block mt-1">Scala</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -430,6 +665,6 @@ println(name)  // prints Nico
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Scala", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "rxjs", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
