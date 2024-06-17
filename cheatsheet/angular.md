@@ -7,6 +7,26 @@ label: Angular
 npx -p @angular/cli@16.2.14 ng new {projectName}
 ```
 
+### Pass component inputs in route
+Receive the route data, path parameters, query parameters for a route as component input.
+```
+const routes = [
+  path: 'about',
+  loadComponent: import('./about'),
+  resolve: { contact: () => getContact() }
+];
+
+@Component(...)
+export class About {
+  @Input() contact?: string;
+}
+```
+
+### Marking inputs as required
+```
+@Input({ required: true }) title: string = '';
+```
+
 ### ngTemplate, ngTemplateOutlet and ngTemplateOutletContext
 
 ```Example
@@ -145,4 +165,26 @@ this.route.data.subscribe(
   }
 );
 
+```
+
+### Lazy load routes
+Search "Angular standalone routing".
+
+```
+export const routes = [
+  {
+    path: 'items',
+    loadChildren: () => import('./items/items.routes');
+  }
+]
+```
+
+### Lazy load components
+```
+export const routes = [
+  {
+    path: 'items',
+    loadComponent: () => import('./items/items.component');
+  }
+]
 ```
