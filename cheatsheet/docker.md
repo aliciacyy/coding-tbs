@@ -1,5 +1,5 @@
 ---
-label: docker
+label: Docker
 ---
 
 ## Running Docker
