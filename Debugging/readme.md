@@ -13,4 +13,5 @@ I am using Windows, so some solutions may not be applicable for other OS.
 
 - [Angular](../debugging/angular.md)
 - [Git](../debugging/git.md)
+- [Google Cloud Run](../Debugging/google-cloud-run.md)
 - [React](../debugging/react.md)
