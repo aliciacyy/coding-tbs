@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/coding-tbs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.774252424983">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.774256134588">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.774252424983" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.774256134588" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.774252424983" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.774256134588" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.774252424983" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.774252424983" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.774256134588" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.774256134588" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -186,11 +186,17 @@
         <span>JS and TS</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="types-vs-interfaces">
+<doc-anchor-target id="ts-stuff">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#types-vs-interfaces">#</doc-anchor-trigger>
-        <span>Types vs interfaces</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ts-stuff">#</doc-anchor-trigger>
+        <span>TS stuff</span>
     </h2>
+</doc-anchor-target>
+<doc-anchor-target id="types-and-interfaces">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#types-and-interfaces">#</doc-anchor-trigger>
+        <span>Types and interfaces</span>
+    </h3>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">type User = {
@@ -212,6 +218,132 @@ interface User {
 type SType = { name: string } &amp; { age: number}
 const user: Stype = { name: 'string' }</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="use-unknown-instead-of-any">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#use-unknown-instead-of-any">#</doc-anchor-trigger>
+        <span>Use unknown instead of any</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>unknown</code> is the union of every type there is.</li>
+<li><code v-pre>any</code> is the &quot;elastic&quot; type which fits to what it needs to be. (It may also be thought of as the switch to selectively disable type checking)</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">interface IUser {
+    name: string
+}
+
+interface IAdminUser extends IUser {
+    token: string;
+    addNewUser: () =&gt; void;
+}
+
+// typeguard
+function isAdminUser(object: unknown): object is IAdminUser {
+    if (object !== null &amp;&amp; typeof object === &quot;object&quot;) {
+        return &quot;token&quot; in object;
+    }
+    return false;
+}
+
+async function fetchUser() {
+    const res = await fetch(&quot;someurl&quot;);
+
+    const user: unknown = await res.json();
+    if (isAdminUser()) {
+        // then we know the type here
+    }
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="is-operator">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#is-operator">#</doc-anchor-trigger>
+        <span>is Operator</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">type Species = 'cat' | 'dog';
+interface Pet {
+    species: Species;
+}
+
+class Cat implements Pet {
+    public species: Species = 'cat';
+    public meow(): void {
+        console.log('meow');
+    }
+}
+function petIsCat(pet: Pet): pet is Cat {
+    return pet.species === 'cat';
+}
+const p: Pet = new Cat();
+
+if (petIsCat(p)) {
+    p.meow(); // can access
+}
+
+// type cast
+(p as Cat).meow();</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="satisfies">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#satisfies">#</doc-anchor-trigger>
+        <span>satisfies</span>
+    </h3>
+</doc-anchor-target>
+<p>To match some type for inference purposes.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">type UserImage = string | ICustomImage;
+
+const user = {
+    id: 1,
+    image: &quot;image-url&quot;
+} satisfies IUser;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="enums">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#enums">#</doc-anchor-trigger>
+        <span>Enums</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">type State = &quot;InProgress&quot; | &quot;Success&quot; | &quot;Fail&quot;
+or
+enum State {
+    InProgress = &quot;InProgress&quot;
+    Success = &quot;Success&quot;
+    Fail = &quot;Fail&quot;
+} // do not use numbers
+cosnt checkState = (state: State) =&gt; {};</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="utility">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#utility">#</doc-anchor-trigger>
+        <span>Utility</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">// to avoid having to create another interface to make fields optional when you only want to update a few fields
+function updateProduct() {
+    productId: IProduct[&quot;id&quot;],
+    updatedProduct: Partial&lt;Omit&lt;IProduct, &quot;id&quot;&gt;&gt;   
+} {}
+
+// record
+type Properties = &quot;red&quot; | &quot;green&quot; | &quot;blue&quot;;
+type RGB = [red: number, green: number, blue&quot; number];
+const color: Record&lt;Properties, RGB | string&gt; = {
+    red: [255, 0, 0],
+    green: 'green',
+    blue: 'blue'
+};</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="js-stuff">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#js-stuff">#</doc-anchor-trigger>
+        <span>JS stuff</span>
+    </h2>
+</doc-anchor-target>
 <doc-anchor-target id="arrow-functions">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#arrow-functions">#</doc-anchor-trigger>
@@ -338,6 +470,15 @@ param =&gt; {
   statements
 }</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="references">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#references">#</doc-anchor-trigger>
+        <span>References</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=ZCllX1p763U">https://www.youtube.com/watch?v=ZCllX1p763U</a></li>
+</ul>
 
                                 
                                 <!-- Required only on API pages -->
