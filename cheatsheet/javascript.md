@@ -1,6 +1,28 @@
 ---
-label: Javascript
+label: JS and TS
 ---
+
+## Types vs interfaces
+```
+type User = {
+    name: string
+}
+
+interface User {
+    name: string
+}
+```
+
+- Interfaces are made to represent objects and DTOs.
+- Types are made to make few types work as close as primative types, but it can go as complex as you need.
+- Interfaces can only be used to define type of object, type can be used for single type e.g. `type SType = string | number`
+- Types can use union of multiple types
+
+```
+type SType = { name: string } | { age: number}
+type SType = { name: string } & { age: number}
+const user: Stype = { name: 'string' }
+```
 
 ### Arrow functions
 ```
