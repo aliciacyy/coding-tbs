@@ -2,7 +2,9 @@
 label: JS and TS
 ---
 
-## Types vs interfaces
+## TS stuff
+
+### Types and interfaces
 ```
 type User = {
     name: string
@@ -23,6 +25,107 @@ type SType = { name: string } | { age: number}
 type SType = { name: string } & { age: number}
 const user: Stype = { name: 'string' }
 ```
+
+### Use unknown instead of any
+- `unknown` is the union of every type there is.
+- `any` is the "elastic" type which fits to what it needs to be. (It may also be thought of as the switch to selectively disable type checking)
+
+```
+interface IUser {
+    name: string
+}
+
+interface IAdminUser extends IUser {
+    token: string;
+    addNewUser: () => void;
+}
+
+// typeguard
+function isAdminUser(object: unknown): object is IAdminUser {
+    if (object !== null && typeof object === "object") {
+        return "token" in object;
+    }
+    return false;
+}
+
+async function fetchUser() {
+    const res = await fetch("someurl");
+
+    const user: unknown = await res.json();
+    if (isAdminUser()) {
+        // then we know the type here
+    }
+}
+```
+
+### is Operator
+```
+type Species = 'cat' | 'dog';
+interface Pet {
+    species: Species;
+}
+
+class Cat implements Pet {
+    public species: Species = 'cat';
+    public meow(): void {
+        console.log('meow');
+    }
+}
+function petIsCat(pet: Pet): pet is Cat {
+    return pet.species === 'cat';
+}
+const p: Pet = new Cat();
+
+if (petIsCat(p)) {
+    p.meow(); // can access
+}
+
+// type cast
+(p as Cat).meow();
+```
+
+### satisfies
+To match some type for inference purposes.
+```
+type UserImage = string | ICustomImage;
+
+const user = {
+    id: 1,
+    image: "image-url"
+} satisfies IUser;
+```
+
+### Enums
+```
+type State = "InProgress" | "Success" | "Fail"
+or
+enum State {
+    InProgress = "InProgress"
+    Success = "Success"
+    Fail = "Fail"
+} // do not use numbers
+cosnt checkState = (state: State) => {};
+```
+
+### Utility
+```
+// to avoid having to create another interface to make fields optional when you only want to update a few fields
+function updateProduct() {
+    productId: IProduct["id"],
+    updatedProduct: Partial<Omit<IProduct, "id">>   
+} {}
+
+// record
+type Properties = "red" | "green" | "blue";
+type RGB = [red: number, green: number, blue" number];
+const color: Record<Properties, RGB | string> = {
+    red: [255, 0, 0],
+    green: 'green',
+    blue: 'blue'
+};
+```
+
+## JS stuff
 
 ### Arrow functions
 ```
@@ -114,3 +217,6 @@ param => {
   statements
 }
 ```
+
+## References
+- https://www.youtube.com/watch?v=ZCllX1p763U
