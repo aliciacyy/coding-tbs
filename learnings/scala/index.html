@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/coding-tbs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.774256134588">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.808127189687">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.5.0">
+    <meta name="generator" content="Retype 3.11.0">
 
     <!-- Primary Meta Tags -->
     <title>Scala</title>
@@ -29,45 +29,45 @@
     <meta property="twitter:title" content="Scala">
     <meta property="twitter:description" content="Syntax for declaring a value:">
 
-    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link href="../../favicon.png" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.774256134588" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.11.0.808127189687" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.774256134588" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.774256134588" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.808127189687" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.808127189687" data-turbo-eval="false" defer></script>
 </head>
 <body>
-    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
-        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+        <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
     
-        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+        <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
             <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
                 <!-- Mobile menu button skeleton -->
-                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
-                <div v-cloak id="docs-sidebar-toggle"></div>
+                <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="retype-sidebar-left-toggle-button"></div>
         
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-2xl">
-                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Coding TBS</span>
-                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">v1.1</span>
+                        <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                            <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Coding TBS</span>
+                        </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">v1.1</span>
                     </div>
         
-                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                    <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
                 </div>
         
                 <div class="flex justify-between md:grow">
                     <!-- Top Nav -->
-                    <nav class="hidden md:flex">
+                    <nav id="retype-header-nav" class="hidden md:flex">
                         <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                             <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/aliciacyy" target="_blank">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text-weight hover:text-header-text-hover" href="https://github.com/aliciacyy" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
                                         <g fill="currentColor">
-                                            <symbol id="mark-github-icon-symbol" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></symbol><use xlink:href="#mark-github-icon-symbol" />
+                                            <path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"/>
                                         </g>
                                     </svg>
                                     <span>GitHub</span>
@@ -85,7 +85,7 @@
                             <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
                             </div>
-                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                            <input class="w-full h-10 placeholder-search-placeholder transition-colors duration-200 ease-in bg-search-bg border border-transparent rounded md:text-sm hover:border-search-border-hover focus:outline-none focus:border-search-border-focus" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
                         </div>
         
                         <!-- Mobile search button -->
@@ -103,7 +103,7 @@
                     </div>
         
                     <div v-cloak class="flex justify-end grow">
-                        <div id="docs-mobile-search-button"></div>
+                        <div id="retype-mobile-search-button"></div>
                         <doc-search-desktop></doc-search-desktop>
         
                         <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
@@ -113,26 +113,26 @@
             </div>
         </header>
     
-        <div class="container relative flex bg-white">
+    
+        <div id="retype-container" class="container relative flex bg-white">
             <!-- Sidebar Skeleton -->
-            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
             
-                <!-- Render this div, if config.showSidebarFilter is `true` -->
                 <div class="flex items-center h-16 px-6">
-                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded shadow-none text-sm focus:outline-none focus:border-filter-border-focus" type="text" placeholder="Filter">
                 </div>
             
                 <div class="pl-6 mt-1 mb-4">
-                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
                 </div>
             
-                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
-                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
                         <span class="text-xs whitespace-nowrap">Powered by</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
                     </a>
@@ -142,16 +142,16 @@
             <!-- Sidebar component -->
             <doc-sidebar v-cloak>
                 <template #sidebar-footer>
-                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
             
-                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                        <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
                             <nav>
                                 <ul class="flex flex-wrap justify-center items-center">
                                     <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/aliciacyy" target="_blank">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text-weight hover:text-header-text-hover" href="https://github.com/aliciacyy" target="_blank">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
                                                 <g fill="currentColor">
-                                                    <symbol id="mark-github-icon-symbol" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></symbol><use xlink:href="#mark-github-icon-symbol" />
+                                                    <path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"/>
                                                 </g>
                                             </svg>
                                             <span>GitHub</span>
@@ -162,7 +162,7 @@
                             </nav>
                         </div>
             
-                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
                             <span class="text-xs whitespace-nowrap">Powered by</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
                         </a>
@@ -170,14 +170,14 @@
                 </template>
             </doc-sidebar>
     
-            <div class="grow min-w-0 dark:bg-dark-850">
+            <div class="grow min-w-0 bg-body-bg">
                 <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
                 <div class="flex">
-                    <div class="min-w-0 p-4 grow md:px-16">
+                    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
                         <main class="relative pb-12 lg:pt-2">
-                            <div class="docs-markdown" id="docs-content">
+                            <div class="retype-markdown" id="retype-content">
                                 <!-- Rendered if sidebar right is enabled -->
-                                <div id="docs-sidebar-right-toggle"></div>
+                                <div id="retype-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
 <doc-anchor-target id="scala" class="break-words">
     <h1>
@@ -199,7 +199,7 @@
 </doc-anchor-target>
 <p>Syntax for declaring a value:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val x: Int = 42</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">val x: Int = 42</code></pre>
 </doc-codeblock></div>
 <ul>
 <li><code v-pre>val</code> is immutable</li>
@@ -213,7 +213,7 @@
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">var variable: Int = 4</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">var variable: Int = 4</code></pre>
 </doc-codeblock></div>
 <ul>
 <li>Can be reassigned (mutable)</li>
@@ -233,7 +233,7 @@
 <li>In Scala, every single code will compute a value</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val condition = if (true) 5 else 3</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">val condition = if (true) 5 else 3</code></pre>
 </doc-codeblock></div>
 <ul>
 <li><code v-pre>If</code> expression gives back a value</li>
@@ -270,7 +270,7 @@
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val codeBlock = {
+<pre translate="no" class="language-none"><code v-pre class="language-none">val codeBlock = {
     val y = 2
     val z = y + 1
     if (z &gt; 2) &quot;hello&quot; else &quot;goodbye&quot;
@@ -288,7 +288,7 @@
 </doc-anchor-target>
 <p>Syntax:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">def aFunction(a: String, b: Int): String =
+<pre translate="no" class="language-none"><code v-pre class="language-none">def aFunction(a: String, b: Int): String =
     a + &quot; &quot; + b</code></pre>
 </doc-codeblock></div>
 <ul>
@@ -297,7 +297,7 @@
 </ul>
 <p>&quot;Loops&quot;</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">def repeatFunction(a: String, n: Int): String = {
+<pre translate="no" class="language-none"><code v-pre class="language-none">def repeatFunction(a: String, n: Int): String = {
     if (n == 1) a
     else aString + repeatFunction(a, n-1)
 }</code></pre>
@@ -310,17 +310,17 @@
 </ul>
 <p>Examples:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">def factorial(n: Int): Int = 
+<pre translate="no" class="language-none"><code v-pre class="language-none">def factorial(n: Int): Int = 
   if (n &lt;=0) 1
   else n * factorial(n-1)</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">def fibonacci(n: Int): Int = 
+<pre translate="no" class="language-none"><code v-pre class="language-none">def fibonacci(n: Int): Int = 
   if (n &lt;=2) 1
   else fibonacci(n-1) + fibonacci(n-2)</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">def isPrime(n: Int): Boolean =
+<pre translate="no" class="language-none"><code v-pre class="language-none">def isPrime(n: Int): Boolean =
   def isPrimeUntil(t: Int): Boolean =
     if (t &lt;= 1) true
     else n % t != 0 &amp;&amp; isPrimeUntil(t-1)
@@ -334,7 +334,7 @@
 </doc-anchor-target>
 <p>Improved factorial</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">def factorial(n: Int): Int = }
+<pre translate="no" class="language-none"><code v-pre class="language-none">def factorial(n: Int): Int = }
     def factHelper(x: Int, accumulator: Int): Int =
         if (x&lt;=1) accumulator
         else factHelper(x-1, x*accumulator)
@@ -346,7 +346,7 @@
 <li>Add annotation <code v-pre>@tailrec</code> to check if it is a tail recursion</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">def isPrime(n: Int): Boolean = {
+<pre translate="no" class="language-none"><code v-pre class="language-none">def isPrime(n: Int): Boolean = {
     def isPrimeTailrec(t: Int, isStillPrime: Boolean): Boolean =
         if (!isStillPrime) false
         else if (t &lt;= 1) true
@@ -355,7 +355,7 @@
 }</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">def fibo(n: Int): Int = {
+<pre translate="no" class="language-none"><code v-pre class="language-none">def fibo(n: Int): Int = {
     def fiboTail(i: Int, last: Int, nextToLast: Int): Int =
         if (i &gt;= n) last
         else fiboTail(i+1, last + nextToLast, last)
@@ -370,7 +370,7 @@
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">def callByName(x: =&gt; Long)</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">def callByName(x: =&gt; Long)</code></pre>
 </doc-codeblock></div>
 <ul>
 <li><code v-pre>=&gt;</code> means call by name</li>
@@ -384,7 +384,7 @@
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">def factHelper(x: Int, accumulator: Int = 1): Int =
+<pre translate="no" class="language-none"><code v-pre class="language-none">def factHelper(x: Int, accumulator: Int = 1): Int =
     if (x&lt;=1) accumulator
     else factHelper(x-1, x*accumulator)</code></pre>
 </doc-codeblock></div>
@@ -392,7 +392,7 @@
 <li>set default value of accumulator so can just call factHelper(10)</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">def pic(format: String = &quot;jpg&quot;, width: Int, height: Int): Unit = println(&quot;test&quot;)
+<pre translate="no" class="language-none"><code v-pre class="language-none">def pic(format: String = &quot;jpg&quot;, width: Int, height: Int): Unit = println(&quot;test&quot;)
 
 pic(width = 800)</code></pre>
 </doc-codeblock></div>
@@ -420,7 +420,7 @@ pic(width = 800)</code></pre>
 </ul>
 <p><strong>S-interpolators</strong></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val name = &quot;John&quot;
+<pre translate="no" class="language-none"><code v-pre class="language-none">val name = &quot;John&quot;
 val age = 12
 
 val greeting = s&quot;Hello, my name i $name and I am $age years old&quot;
@@ -428,7 +428,7 @@ val greeting2 = s&quot;Hello, my name i $name and I am ${age + 1} years old&quot
 </doc-codeblock></div>
 <p><strong>F-interpolators</strong></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val speed = 1.2f
+<pre translate="no" class="language-none"><code v-pre class="language-none">val speed = 1.2f
 val myth = f&quot;I can eat $speed%2.2f&quot;</code></pre>
 </doc-codeblock></div>
 <ul>
@@ -437,7 +437,7 @@ val myth = f&quot;I can eat $speed%2.2f&quot;</code></pre>
 </ul>
 <p><strong>Raw interpolator</strong></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">println(raw&quot;This is a \n newline&quot;)</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">println(raw&quot;This is a \n newline&quot;)</code></pre>
 </doc-codeblock></div>
 <ul>
 <li>injected variables still get escaped</li>
@@ -450,7 +450,7 @@ val myth = f&quot;I can eat $speed%2.2f&quot;</code></pre>
 </doc-anchor-target>
 <p>Define a class:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">class Person(name: String, age: Int) {
+<pre translate="no" class="language-none"><code v-pre class="language-none">class Person(name: String, age: Int) {
     // can do anything inside, this block is evaluated on instiantiaion
     val x = 2 // this is a field
 
@@ -461,7 +461,7 @@ val myth = f&quot;I can eat $speed%2.2f&quot;</code></pre>
 }</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val person = new Person(&quot;John&quot;, 24)
+<pre translate="no" class="language-none"><code v-pre class="language-none">val person = new Person(&quot;John&quot;, 24)
 person.x
 person.greet(&quot;Jane&quot;)</code></pre>
 </doc-codeblock></div>
@@ -470,7 +470,7 @@ person.greet(&quot;Jane&quot;)</code></pre>
 <li>To add as field, change param to <code v-pre>val age: Int</code></li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">class Writer(firstName: String)</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">class Writer(firstName: String)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="infixoperator-notation">
     <h2>
@@ -480,7 +480,7 @@ person.greet(&quot;Jane&quot;)</code></pre>
 </doc-anchor-target>
 <p>Only works with methods with only 1 parameter</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">mary.likes(&quot;Inception&quot;)
+<pre translate="no" class="language-none"><code v-pre class="language-none">mary.likes(&quot;Inception&quot;)
 mary likes &quot;Inception&quot;</code></pre>
 </doc-codeblock></div>
 <p>All operators are methods.</p>
@@ -493,7 +493,7 @@ mary likes &quot;Inception&quot;</code></pre>
 <p>All about unary operators.</p>
 <p>unvary_ prefix only works with - + ~ !</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">!mary
+<pre translate="no" class="language-none"><code v-pre class="language-none">!mary
 mary.unary_!</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="postfix-notation">
@@ -504,7 +504,7 @@ mary.unary_!</code></pre>
 </doc-anchor-target>
 <p>For methods with no parameters. Rarely used in practice.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">mary.isAlive
+<pre translate="no" class="language-none"><code v-pre class="language-none">mary.isAlive
 mary isAlive</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="apply">
@@ -515,7 +515,7 @@ mary isAlive</code></pre>
 </doc-anchor-target>
 <p>Need to define a method called <code v-pre>apply</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">mary.apply() same as
+<pre translate="no" class="language-none"><code v-pre class="language-none">mary.apply() same as
 mary()</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="class-level-functionality">
@@ -526,13 +526,13 @@ mary()</code></pre>
 </doc-anchor-target>
 <p>Scala does not have class level functionality (&quot;static&quot;)</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">// DONT HAVE THIS
+<pre translate="no" class="language-none"><code v-pre class="language-none">// DONT HAVE THIS
 class Person {
     public static final int N_EYES = 2
 }</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">// USE THIS
+<pre translate="no" class="language-none"><code v-pre class="language-none">// USE THIS
 object Person {
     val N_EYES = 2
 }</code></pre>
@@ -594,11 +594,11 @@ object Person {
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">class MyList[A]
+<pre translate="no" class="language-none"><code v-pre class="language-none">class MyList[A]
 class MyMap[Key, Value]</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">object MyList {
+<pre translate="no" class="language-none"><code v-pre class="language-none">object MyList {
     def empty[A]: MyList[A] = ???
 }</code></pre>
 </doc-codeblock></div>
@@ -609,7 +609,7 @@ class MyMap[Key, Value]</code></pre>
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">class CoList[+A]
+<pre translate="no" class="language-none"><code v-pre class="language-none">class CoList[+A]
 val list: CoList[Animal] = new CoList[Cat]</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="invariance">
@@ -619,7 +619,7 @@ val list: CoList[Animal] = new CoList[Cat]</code></pre>
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">class CoList[A]
+<pre translate="no" class="language-none"><code v-pre class="language-none">class CoList[A]
 val list: CoList[Animal] = new CoList[Animal]</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="contravariance">
@@ -629,7 +629,7 @@ val list: CoList[Animal] = new CoList[Animal]</code></pre>
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">class CoList[-A]
+<pre translate="no" class="language-none"><code v-pre class="language-none">class CoList[-A]
 val list: CoList[Cat] = new CoList[Animal]</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="bounded-types">
@@ -640,11 +640,11 @@ val list: CoList[Cat] = new CoList[Animal]</code></pre>
 </doc-anchor-target>
 <p>Restrict only for subclass of animal</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">class Cage[A &lt;: Animal](animal: A)</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">class Cage[A &lt;: Animal](animal: A)</code></pre>
 </doc-codeblock></div>
 <p>Restrict only for superclass of animal</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">class Cage[A &gt;: Animal](animal: A)</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">class Cage[A &gt;: Animal](animal: A)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="case">
     <h2>
@@ -653,7 +653,7 @@ val list: CoList[Cat] = new CoList[Animal]</code></pre>
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">case Class Person(name: String, age: Int)</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">case Class Person(name: String, age: Int)</code></pre>
 </doc-codeblock></div>
 <p>Quick lightweight data structures with little boilerplate</p>
 <ul>
@@ -672,7 +672,7 @@ val list: CoList[Cat] = new CoList[Animal]</code></pre>
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">throw new NullPointerException</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">throw new NullPointerException</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="catch-exceptions">
     <h2>
@@ -681,7 +681,7 @@ val list: CoList[Cat] = new CoList[Animal]</code></pre>
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">try {
+<pre translate="no" class="language-none"><code v-pre class="language-none">try {
     // code that might fail
 } catch {
     case e: RuntimeException =&gt; println(&quot;caught&quot;)
@@ -696,7 +696,7 @@ val list: CoList[Cat] = new CoList[Animal]</code></pre>
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">class MyException extends Exception
+<pre translate="no" class="language-none"><code v-pre class="language-none">class MyException extends Exception
 val expcetion = new MyException
 throw exception</code></pre>
 </doc-codeblock></div>
@@ -714,7 +714,7 @@ throw exception</code></pre>
 <p><code v-pre>package object</code>s hold standalone methods/constants (one per package)</p>
 <p>Name aliasing imports</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">import java.sql.{Date =&gt; SqlDate}</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">import java.sql.{Date =&gt; SqlDate}</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="functional-programming">
     <h2>
@@ -733,7 +733,7 @@ throw exception</code></pre>
 <li>Function traits up to 22 params</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val doubler = new MyFunction[Int, Int] {
+<pre translate="no" class="language-none"><code v-pre class="language-none">val doubler = new MyFunction[Int, Int] {
     override def apply(element: Int): Int = element * 2
 }
 println(doubler(2))
@@ -749,7 +749,7 @@ trait MyFunction[A, B] {
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">var doubler = (x: Int) =&gt; x * 2
+<pre translate="no" class="language-none"><code v-pre class="language-none">var doubler = (x: Int) =&gt; x * 2
 
 var adder: (Int, Int) =&gt; Int = (a: Int, b: Int) =&gt; a + b
 
@@ -768,7 +768,7 @@ val fancy: Int =&gt; Int = _ + 1 // same as x =&gt; x + 1</code></pre>
 <li>Examples: map, flatMap, filter</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">// function that applies a function n times over a value x
+<pre translate="no" class="language-none"><code v-pre class="language-none">// function that applies a function n times over a value x
 // nTimes(f, n, x)
 // nTimes(f, 3, x) = f(f(f(x))) = nTimes(f, 2, f(x)) = f(f(f(x)))
 // nTimes(f, n, x) = f(f(...f(x))) = nTimes(f, n-1, f(x))
@@ -799,7 +799,7 @@ println(plus10(1))</code></pre>
 <li>Functions with multiple parameter lists</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">// receives an Int and returns another function
+<pre translate="no" class="language-none"><code v-pre class="language-none">// receives an Int and returns another function
 val superAdder: Int =&gt; (Int =&gt; Int) = (x: Int) =&gt; (y: Int) =&gt; x + y
 val add3 = superAdder(3)  // y =&gt; 3 + y
 add3(10) // or
@@ -815,7 +815,7 @@ superAdder(3)(10)</code></pre>
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">list = List(1,2,3)
+<pre translate="no" class="language-none"><code v-pre class="language-none">list = List(1,2,3)
 val toPair = (x: Int) =&gt; List(x, x+1)
 println(list.flatMap(toPair))
 // 1, 2, 2, 3, 3, 4
@@ -834,7 +834,7 @@ val colors = List(&quot;black&quot;, &quot;white&quot;)
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">// for-comprehensions
+<pre translate="no" class="language-none"><code v-pre class="language-none">// for-comprehensions
 val forCombinations = for {
     n &lt;- numbers if n % 2 == 0
     c &lt;- chars
@@ -862,7 +862,7 @@ println(forCombinations)</code></pre>
 <li>Other operations are O(n)</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val aList = List(1,2,3)
+<pre translate="no" class="language-none"><code v-pre class="language-none">val aList = List(1,2,3)
 val prepended = 42 +: aList :+ 89
 val apples5 = List.fill(5)(&quot;apple&quot;)
 println(aList.mkString(&quot;-|-&quot;))</code></pre>
@@ -874,7 +874,7 @@ println(aList.mkString(&quot;-|-&quot;))</code></pre>
 <li>Indexing is fast</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val numbers = Array(1,2,3,4)
+<pre translate="no" class="language-none"><code v-pre class="language-none">val numbers = Array(1,2,3,4)
 val threeElements = Array.ofDim[String](3)
 // mutation
 numbers(2) = 0  // syntax sugar for numbers.update(2, 0)</code></pre>
@@ -886,7 +886,7 @@ numbers(2) = 0  // syntax sugar for numbers.update(2, 0)</code></pre>
 <li>Fast element addition</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val vector: Vector[Int] = Vector(1,2,3)</code></pre>
+<pre translate="no" class="language-none"><code v-pre class="language-none">val vector: Vector[Int] = Vector(1,2,3)</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="tuples-and-maps">
     <h2>
@@ -900,7 +900,7 @@ numbers(2) = 0  // syntax sugar for numbers.update(2, 0)</code></pre>
 <li>1 indexed</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">// tuples = finite ordered &quot;lists&quot;
+<pre translate="no" class="language-none"><code v-pre class="language-none">// tuples = finite ordered &quot;lists&quot;
 val aTuple = (2, &quot;hello, Scala&quot;)  // Tuple2[Int, String] = (Int, String)
 
 println(aTuple._1)  // 2
@@ -909,7 +909,7 @@ println(aTuple.swap)  // (&quot;hello, Scala&quot;, 2)</code></pre>
 </doc-codeblock></div>
 <p><strong>Maps</strong></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">// Maps - keys -&gt; values
+<pre translate="no" class="language-none"><code v-pre class="language-none">// Maps - keys -&gt; values
 val aMap: Map[String, Int] = Map()
 
 val phonebook = Map((&quot;Jim&quot;, 555), &quot;Daniel&quot; -&gt; 789, (&quot;JIM&quot;, 9000)).withDefaultValue(-1)
@@ -926,7 +926,7 @@ val phonebook = Map((&quot;Jim&quot;, 555), &quot;Daniel&quot; -&gt; 789, (&quot
 <li>Use to avoid NPEs and null-related assertions</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">// chained methods
+<pre translate="no" class="language-none"><code v-pre class="language-none">// chained methods
 def backupMethod(): String = &quot;A valid result&quot;
 val chainedResult = Option(unsafeMethod()).orElse(Option(backupMethod()))
 
@@ -936,7 +936,7 @@ def betterBackupMethod(): Option[String] = Some(&quot;A valid result&quot;)
 val betterChainedResult = betterUnsafeMethod() orElse betterBackupMethod()</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">  /*
+<pre translate="no" class="language-none"><code v-pre class="language-none">  /*
     if (h != null)
       if (p != null)
         return Connection.apply(h, p)
@@ -970,7 +970,7 @@ val betterChainedResult = betterUnsafeMethod() orElse betterBackupMethod()</code
 <li>Use to handle exception gracefully</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val potentialFailure = Try(unsafeMethod())
+<pre translate="no" class="language-none"><code v-pre class="language-none">val potentialFailure = Try(unsafeMethod())
 def betterUnsafeMethod(): Try[String] = Failure(new RuntimeException)
 def betterBackupMethod(): Try[String] = Success(&quot;A valid result&quot;)
 val betterFallback = betterUnsafeMethod() orElse betterBackupMethod()
@@ -993,7 +993,7 @@ val betterFallback = betterUnsafeMethod() orElse betterBackupMethod()
     </h2>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">val description = x match {
+<pre translate="no" class="language-none"><code v-pre class="language-none">val description = x match {
   case 1 =&gt; &quot;the ONE&quot;
   case 2 =&gt; &quot;double or nothing&quot;
   case 3 =&gt; &quot;third time is the charm&quot;
@@ -1001,7 +1001,7 @@ val betterFallback = betterUnsafeMethod() orElse betterBackupMethod()
 }</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">// 1. Decompose values
+<pre translate="no" class="language-none"><code v-pre class="language-none">// 1. Decompose values
 case class Person(name: String, age: Int)
 val bob = Person(&quot;Bob&quot;, 20)
 
@@ -1017,7 +1017,7 @@ println(greeting)</code></pre>
 <li>If no match found (and no default match), will get <code v-pre>scala.MatchError</code></li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">  // PM on sealed hierarchies
+<pre translate="no" class="language-none"><code v-pre class="language-none">  // PM on sealed hierarchies
 sealed class Animal
 case class Dog(breed: String) extends Animal
 case class Parrot(greeting: String) extends Animal
@@ -1028,7 +1028,7 @@ animal match {
 }</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">// 2.2 variable
+<pre translate="no" class="language-none"><code v-pre class="language-none">// 2.2 variable
 val matchAVariable = x match {
   case something =&gt; s&quot;I've found $something&quot;
 }
@@ -1093,23 +1093,23 @@ val secondElementSpecial = aList match {
                                 <!-- Required only on API pages -->
                                 <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
                             </div>
-                            <footer class="clear-both">
+                            <footer id="retype-content-footer" class="clear-both">
                             
-                                <nav class="flex mt-14">
+                                <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../learnings/react-router/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../learnings/react-router/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
-                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
                                                 <span class="block mt-1">React (Router)</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../projects/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../projects/">
                                             <span>
-                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
                                                 <span class="block mt-1">Projects</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
@@ -1119,24 +1119,24 @@ val secondElementSpecial = aList match {
                             </footer>
                         </main>
                 
-                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
-                            <footer class="flex flex-wrap items-center justify-between">
-                                <div>
+                        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                                <div id="retype-footer-links" class="print:hidden">
                                     <ul class="flex flex-wrap items-center text-sm">
                                     </ul>
                                 </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024 Alicia C. All rights reserved.</p></div>
+                                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link-weight text-sm leading-relaxed"><p>© Copyright 2025 Alicia C. All rights reserved.</p></div>
                             </footer>
                         </div>
                     </div>
                 
                     <!-- Rendered if sidebar right is enabled -->
                     <!-- Sidebar right skeleton-->
-                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
                         <div class="pl-5">
-                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
-                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
-                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
                         </div>
                     </div>
                 
@@ -1152,7 +1152,7 @@ val secondElementSpecial = aList match {
     </div>
 
 
-    <div id="docs-overlay-target"></div>
+    <div id="retype-overlay-target"></div>
 
     <script data-cfasync="false">window.__DOCS__ = { "title": "Scala", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
